@@ -1,8 +1,17 @@
 import React, { memo } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Header from './Page/Header/Header'
 
 const App = memo(() => {
   return (
-    <div>App</div>
+    <>
+      <Header />
+      {/* <Routes>
+        <Routes>
+          <Route path="/" element={<Header />} />
+        </Routes>
+      </Routes> */}
+    </>
   )
 })
 
