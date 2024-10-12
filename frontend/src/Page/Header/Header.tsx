@@ -6,6 +6,7 @@ import React, { memo } from 'react'
 const Header = memo(() => {
     return (
         <>
+
             <AppBar position="fixed" sx={{ backgroundColor: "#000000" }}>
                 <Stack spacing={95} direction="row" sx={{ height: "80px" }}>
                     <Box>
