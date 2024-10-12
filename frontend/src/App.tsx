@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { memo } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // BrowserRouterを使用
+import Header from './Page/Header/Header';
+import Box from '@mui/material/Box';
+import MainContent from './Page/TopPage/MainContent';
 
-function App() {
+const App = memo(() => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Box sx={{ height: "80px" }}>
+        <Header />
+      </Box>
+      <Router>
+        <Box sx={{ height: "900vh" }}>
+          <Routes>
+            <Route path="" element={<MainContent />} />
+          </Routes>
+        </Box>
+      </Router>
+    </>
   );
-}
+});
 
 export default App;
