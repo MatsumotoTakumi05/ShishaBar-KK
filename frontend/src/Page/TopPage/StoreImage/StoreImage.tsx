@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material'
+import { Box, IconButton, Stack } from '@mui/material'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import React, { memo, useEffect, useState } from 'react'
@@ -35,9 +35,9 @@ const StoreImage = memo(() => {
     // 矢印アイコンのクリックイベント
     const moveImageOnClick = (e: React.ChangeEvent<HTMLInputElement>) => {
         const id = e.target.id
-        if (id === "prev" && currentIndex !== 0) {
+        if (id === "prev") {
             setCurrentIndex(currentIndex - 1)
-        } else if (id === "next" && currentIndex !== 5) {
+        } else if (id === "next") {
             setCurrentIndex(currentIndex + 1)
         } else {
             setCurrentIndex(Number(id))
@@ -69,15 +69,19 @@ const StoreImage = memo(() => {
                     alignItems="center"  /* 各要素を縦方向に中央揃え */
                     spacing={10}
                 >
-                    <ArrowBackIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 0 ? "grey" : "white" }} id="prev" onClick={(e: any) => moveImageOnClick(e)} />
+                    <IconButton disabled={currentIndex === 0}>
+                        <ArrowBackIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 0 ? "grey" : "white" }} id="prev" onClick={(e: any) => moveImageOnClick(e)} />
+                    </IconButton>
                     {topImage.map((_, index: number) => {
                         return (
                             <Box id={String(index)} onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === index ? "white" : "grey", borderRadius: "50%" }} > </Box>
                         )
                     })}
-                    <ArrowForwardIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 5 ? "grey" : "white" }} id="next" onClick={(e: any) => moveImageOnClick(e)} />
+                    <IconButton disabled={currentIndex === 5}>
+                        <ArrowForwardIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 5 ? "grey" : "white" }} id="next" onClick={(e: any) => moveImageOnClick(e)} />
+                    </IconButton>
                 </Stack>
-            </Box>
+            </Box >
 
         </>
     )
