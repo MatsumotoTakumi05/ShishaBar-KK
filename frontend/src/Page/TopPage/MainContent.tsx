@@ -4,7 +4,7 @@ import StoreImage from './StoreImage/StoreImage'
 
 const MainContent = memo(() => {
     return (
-        <Box sx={{ height: "600px", width: "100%", bgcolor: "#000000" }}>
+        <Box sx={{ height: "00px", width: "100%", bgcolor: "#000000" }}>
             <StoreImage />
         </Box>
 

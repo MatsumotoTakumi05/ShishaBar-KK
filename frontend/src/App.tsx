@@ -1,21 +1,38 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // BrowserRouterを使用
 import Header from './Page/Header/Header';
 import Box from '@mui/material/Box';
 import MainContent from './Page/TopPage/MainContent';
+import YearConf from './Page/YearConf/YearConf';
 
 const App = memo(() => {
+  const [path, setPath] = useState("/")
+  useEffect(() => {
+    const currentPath = window.location.pathname
+    setPath(currentPath)
+  }, [path])
   return (
     <>
-      <Box sx={{ height: "80px" }}>
-        <Header />
-      </Box>
       <Router>
-        <Box sx={{ height: "900vh" }}>
-          <Routes>
-            <Route path="" element={<MainContent />} />
-          </Routes>
-        </Box>
+        {/* ローカルの場合のみ,本番の場合は変更するため環境変数を作成する必要あり */}
+        {path === "/" ?
+          <>
+            <Box sx={{ bgcolor: "#000000" }}>
+              <YearConf setPath={setPath} />
+            </Box>
+          </>
+          :
+          <>
+            <Box sx={{ height: "80px" }}>
+              <Header />
+            </Box>
+            <Box sx={{ height: "900vh" }}>
+              <Routes>
+                <Route path="/KK" element={<MainContent />} />
+              </Routes>
+            </Box>
+          </>
+        }
       </Router>
     </>
   );
