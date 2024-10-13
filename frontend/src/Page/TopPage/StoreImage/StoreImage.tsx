@@ -1,6 +1,4 @@
-import { Box, Container, Stack } from '@mui/material'
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { Box, Stack } from '@mui/material'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import React, { memo, useEffect, useState } from 'react'
@@ -9,14 +7,17 @@ import './StoreImage.css'
 
 
 const StoreImage = memo(() => {
+
     // 表示する画像リスト
-    const topImage = ["./Normal_BgImage.jpeg", "./Access_BgImage.jpeg", "./Flavor_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg"]
+    const topImage = ["./Normal_BgImage.jpeg", "./Access_BgImage.jpeg", "./Flavor_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg"]
+
     // 画面切り替え時のアニメーション判定
     const [isFade, setIsFade] = useState(true)
+
     // topImageリストのインデックス番号を保持
     const [currentIndex, setCurrentIndex] = useState(0)
+
     // 画像を一定時間ごとに切り替えるためのuseEffect
-    // 画像を一定時間ごとに切り替える
     useEffect(() => {
         const interval = setInterval(() => {
             setIsFade(false); // まずフェードアウト
@@ -42,6 +43,7 @@ const StoreImage = memo(() => {
             setCurrentIndex(Number(id))
         }
     }
+
     return (
         <>
             <Box sx={{ height: "600px", position: "relative" }}>
@@ -68,14 +70,11 @@ const StoreImage = memo(() => {
                     spacing={10}
                 >
                     <ArrowBackIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 0 ? "grey" : "white" }} id="prev" onClick={(e: any) => moveImageOnClick(e)} />
-
-                    <Box id="0" onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === 0 ? "white" : "grey", borderRadius: "50%" }} > </Box>
-                    <Box id="1" onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === 1 ? "white" : "grey", borderRadius: "50%" }}>  </Box>
-                    <Box id="2" onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === 2 ? "white" : "grey", borderRadius: "50%" }}>  </Box>
-                    <Box id="3" onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === 3 ? "white" : "grey", borderRadius: "50%" }}>  </Box>
-                    <Box id="4" onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === 4 ? "white" : "grey", borderRadius: "50%" }}>  </Box>
-                    <Box id="5" onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === 5 ? "white" : "grey", borderRadius: "50%" }}>  </Box>
-
+                    {topImage.map((_, index: number) => {
+                        return (
+                            <Box id={String(index)} onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === index ? "white" : "grey", borderRadius: "50%" }} > </Box>
+                        )
+                    })}
                     <ArrowForwardIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 5 ? "grey" : "white" }} id="next" onClick={(e: any) => moveImageOnClick(e)} />
                 </Stack>
             </Box>
