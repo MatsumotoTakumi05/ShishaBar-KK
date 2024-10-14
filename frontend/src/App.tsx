@@ -4,6 +4,7 @@ import Header from './Page/Header/Header';
 import Box from '@mui/material/Box';
 import MainContent from './Page/TopPage/MainContent';
 import YearConf from './Page/YearConf/YearConf';
+import { Fade } from 'react-swift-reveal';
 
 const App = memo(() => {
   const [path, setPath] = useState("/")
@@ -23,14 +24,16 @@ const App = memo(() => {
           </>
           :
           <>
-            <Box sx={{ height: "80px" }}>
-              <Header />
-            </Box>
-            <Box sx={{ height: "900vh" }}>
-              <Routes>
-                <Route path="/KK" element={<MainContent />} />
-              </Routes>
-            </Box>
+            <Fade>
+              <Box sx={{ height: "80px" }}>
+                <Header />
+              </Box>
+              <Box sx={{ height: "900vh", bgcolor: "#000" }}>
+                <Routes>
+                  <Route path="/KK" element={<MainContent />} />
+                </Routes>
+              </Box>
+            </Fade>
           </>
         }
       </Router>

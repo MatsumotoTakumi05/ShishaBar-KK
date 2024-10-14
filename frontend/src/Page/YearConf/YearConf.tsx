@@ -40,8 +40,8 @@ const YearConf = memo((props: Props) => {
 
                         <Container sx={{
                             position: "absolute",
-                            top: "25%",  // 画像の下からの距離
-                            zIndex: 15, // 画像より前面に表示
+                            top: "25%",
+                            zIndex: 15,
                             backgroundColor: "rgb(0 0 0 / .5)",
                             color: "#fff",
                             height: "300px",
@@ -51,18 +51,20 @@ const YearConf = memo((props: Props) => {
 
                         }}
                         >
-                            <Typography sx={{ textAlign: "center", marginTop: "5%", color: "#ffffff" }}>
-                                年齢確認
-                            </Typography>
-                            <Typography sx={{ textAlign: "center", marginTop: "10%" }}>
-                                当店をご利用いただくには<br />
-                                20歳以上である必要があります。<br />
-                                あなたは20歳以上ですか？
-                            </Typography>
-                            <Box sx={{ textAlign: "center", display: "flex", justifyContent: "space-between", width: "40%", margin: "0 auto" }} >
-                                <Button onClick={nextBtnOnClick}> OK</Button>
-                                <Button> NO</Button>
-                            </Box>
+                            <Fade>
+                                <Typography sx={{ textAlign: "center", marginTop: "5%", color: "#ffffff" }}>
+                                    年齢確認
+                                </Typography>
+                                <Typography sx={{ textAlign: "center", marginTop: "10%" }}>
+                                    当店をご利用いただくには<br />
+                                    20歳以上である必要があります。<br />
+                                    あなたは20歳以上ですか？
+                                </Typography>
+                                <Box sx={{ textAlign: "center", display: "flex", justifyContent: "space-between", width: "40%", margin: "0 auto" }} >
+                                    <Button onClick={nextBtnOnClick}> OK</Button>
+                                    <Button> NO</Button>
+                                </Box>
+                            </Fade>
                         </Container >
 
                     )
