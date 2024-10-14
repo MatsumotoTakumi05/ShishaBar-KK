@@ -23,7 +23,7 @@ const YearConf = memo((props: Props) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowText(true);
-        }, 4000); // Fadeのdurationに合わせた時間
+        }, 3000); // Fadeのdurationに合わせた時間
 
         return () => clearTimeout(timer); // コンポーネントがアンマウントされた際にタイマーをクリア
     }, []);
@@ -32,7 +32,7 @@ const YearConf = memo((props: Props) => {
     return (
         <>
             <Box sx={{ bgcolor: "#000" }}>
-                <Fade duration={10000}>
+                <Fade duration={6000}>
                     <Box component="img" src='./yearConf_BgImage.jpeg' />
                 </Fade>
                 {

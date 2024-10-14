@@ -24,7 +24,7 @@ const App = memo(() => {
           </>
           :
           <>
-            <Fade>
+            <Fade duration={1000}>
               <Box sx={{ height: "80px" }}>
                 <Header />
               </Box>
