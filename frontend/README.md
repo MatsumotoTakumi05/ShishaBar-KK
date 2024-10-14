@@ -1,9 +1,17 @@
+<!-- git clone https://github.com/MatsumotoTakumi05/ShishaBar-KK.git -->
+git cloneを実行
+
+<!-- node --version -->
+  nodeがインストールされているか確認。インストールされていなければ公式にてインストール
+
+<!-- cd frontend -->
+
+<!-- npm ci -->
+package.jsonを元にnode_modulesを生成
+
 <!-- npm start -->
 ローカル環境にてアプリを立ち上げる際のコマンド
 
-<!-- npm ci -->
-【実行タイミング】
-インストールしているライブラリーの脆弱性診断を実施/新規でライブラリーをインストールした場合にも実行
 
 <!-- package.json -->
 ^を削除することでバージョンのアップデートを行わない
