@@ -1,12 +1,16 @@
 import { Box, Container, Link, Stack, Typography } from '@mui/material'
 import { hover } from '@testing-library/user-event/dist/hover'
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 
 interface Info {
   date: string,
   text: string
 }
 const Information = memo(() => {
+
+  // ダイアログの表示を管理
+  const [isOpenDiaLog, setIsOpenDiaLog] = useState(false)
+
   const Information: Info[] = [
     {
       date: "2024/10/01",
@@ -44,7 +48,7 @@ const Information = memo(() => {
                   <Typography sx={{ fontSize: "25px" }}>{Info.date}</Typography>
                 </Box>
                 <Box sx={{ marginLeft: "200px" }}>
-                  <Link sx={{ fontSize: "25px", "&:hover": { opacity: "0.8"},cursor:"pointer"}} underline="none"> {Info.text} </Link>
+                  <Link sx={{ fontSize: "25px", "&:hover": { opacity: "0.8" }, cursor: "pointer" }} underline="none"> {Info.text} </Link>
                 </Box>
               </Box>
             )
