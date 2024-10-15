@@ -9,7 +9,7 @@ import './StoreImage.css'
 const StoreImage = memo(() => {
 
     // 表示する画像リスト
-    const topImage = ["./Normal_BgImage.jpeg", "./Access_BgImage.jpeg", "./Flavor_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg"]
+    const topImage = ["./ShishaAbout_BgImage.jpeg", "./Access_BgImage.jpeg", "./Flavor_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg"]
 
     // 画面切り替え時のアニメーション判定
     const [isFade, setIsFade] = useState(true)

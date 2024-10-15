@@ -1,28 +1,28 @@
-import React, { memo, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // BrowserRouterを使用
-import Header from './Page/Header/Header';
-import Box from '@mui/material/Box';
-import MainContent from './Page/TopPage/MainContent';
-import YearConf from './Page/YearConf/YearConf';
-import { Fade } from 'react-swift-reveal';
+import React, { memo, useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // BrowserRouterを使用
+import Header from "./Page/Header/Header";
+import Box from "@mui/material/Box";
+import MainContent from "./Page/TopPage/MainContent";
+import YearConf from "./Page/YearConf/YearConf";
+import { Fade } from "react-swift-reveal";
 
 const App = memo(() => {
-  const [path, setPath] = useState("/")
+  const [path, setPath] = useState("/");
   useEffect(() => {
-    const currentPath = window.location.pathname
-    setPath(currentPath)
-  }, [path])
+    const currentPath = window.location.pathname;
+    setPath(currentPath);
+  }, [path]);
   return (
     <>
       <Router>
         {/* ローカルの場合のみ,本番の場合は変更するため環境変数を作成する必要あり */}
-        {path === "/" ?
+        {path === "/" ? (
           <>
             <Box sx={{ bgcolor: "#000" }}>
               <YearConf setPath={setPath} />
             </Box>
           </>
-          :
+        ) : (
           <>
             <Fade duration={1000}>
               <Box sx={{ height: "80px" }}>
@@ -35,7 +35,7 @@ const App = memo(() => {
               </Box>
             </Fade>
           </>
-        }
+        )}
       </Router>
     </>
   );
