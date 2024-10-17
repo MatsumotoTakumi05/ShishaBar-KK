@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from '@mui/material'
 import { Fade } from 'react-swift-reveal';
 import React, { memo, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import CustomButton from '../../Component/atoms/Button/CustomButton';
 
 
 interface Props {
@@ -31,7 +32,7 @@ const YearConf = memo((props: Props) => {
 
     return (
         <>
-            <Box sx={{ bgcolor: "#000" }}>
+            <Box sx={{ bgcolor: "#262626" }}>
                 <Fade duration={6000}>
                     <Box component="img" src='./yearConf_BgImage.jpeg' />
                 </Fade>
@@ -42,7 +43,7 @@ const YearConf = memo((props: Props) => {
                             position: "absolute",
                             top: "25%",
                             zIndex: 15,
-                            backgroundColor: "rgb(0 0 0 / .5)",
+                            backgroundColor: "rgba(38, 38, 38, 0.5)",
                             color: "#fff",
                             height: "300px",
                             width: "40%",
@@ -60,9 +61,9 @@ const YearConf = memo((props: Props) => {
                                     20歳以上である必要があります。<br />
                                     あなたは20歳以上ですか？
                                 </Typography>
-                                <Box sx={{ textAlign: "center", display: "flex", justifyContent: "space-between", width: "40%", margin: "0 auto" }} >
-                                    <Button onClick={nextBtnOnClick}> OK</Button>
-                                    <Button> NO</Button>
+                                <Box sx={{ textAlign: "center", display: "flex", justifyContent: "space-between", width: "40%", margin: "0 auto", mt: 2 }} >
+                                    <CustomButton BtnContent='OK' BtnOnClick={nextBtnOnClick} />
+                                    <CustomButton BtnContent='No' BtnOnClick={nextBtnOnClick} />
                                 </Box>
                             </Fade>
                         </Container >

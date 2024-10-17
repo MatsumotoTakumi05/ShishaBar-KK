@@ -37,7 +37,7 @@ const StoreImage = memo(() => {
 
     // 矢印アイコンのクリックイベント
     const moveImageOnClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const id = e.target.id
+        const id = e.currentTarget.id
         if (id === "prev") {
             setCurrentIndex(currentIndex - 1)
         } else if (id === "next") {
@@ -77,16 +77,20 @@ const StoreImage = memo(() => {
                 >
                     {isShowPagination &&
                         <>
-                            <IconButton disabled={currentIndex === 0}>
-                                <ArrowBackIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 0 ? "grey" : "white" }} id="prev" onClick={(e: any) => moveImageOnClick(e)} />
+                            <IconButton
+                                onClick={(e: any) => moveImageOnClick(e)}
+                                disabled={currentIndex === 0}
+                                id="prev"
+                            >
+                                <ArrowBackIosIcon sx={{ fontSize: "25px", color: currentIndex === 0 ? "grey" : "white" }} />
                             </IconButton>
                             {topImage.map((_, index: number) => {
                                 return (
-                                    <Box id={String(index)} onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === index ? "white" : "grey", borderRadius: "50%" }} > </Box>
+                                    <Box id={String(index)} onClick={(e: any) => moveImageOnClick(e)} sx={{ cursor: "pointer", width: "10px", height: "10px", backgroundColor: currentIndex === index ? "white" : "grey", borderRadius: "50%" }} key={index}> </Box>
                                 )
                             })}
-                            <IconButton disabled={currentIndex === 5}>
-                                <ArrowForwardIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 5 ? "grey" : "white" }} id="next" onClick={(e: any) => moveImageOnClick(e)} />
+                            <IconButton disabled={currentIndex === 5} id="next" onClick={(e: any) => moveImageOnClick(e)}>
+                                <ArrowForwardIosIcon sx={{ fontSize: "25px", cursor: "pointer", color: currentIndex === 5 ? "grey" : "white" }} />
                             </IconButton>
                         </>
                     }
