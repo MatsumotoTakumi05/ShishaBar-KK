@@ -15,20 +15,21 @@ const App = memo(() => {
   return (
     <>
       <Router>
+
         {/* ローカルの場合のみ,本番の場合は変更するため環境変数を作成する必要あり */}
         {path === "/" ? (
           <>
-            <Box sx={{ bgcolor: "#000" }}>
+            <Box sx={{ bgcolor: "#262626" }}>
               <YearConf setPath={setPath} />
             </Box>
           </>
         ) : (
           <>
+            <Box sx={{ height: "80px", backgroundColor: "#262626" }}>
+              <Header />
+            </Box>
             <Fade duration={1000}>
-              <Box sx={{ height: "80px" }}>
-                <Header />
-              </Box>
-              <Box sx={{ height: "900vh", bgcolor: "#000" }}>
+              <Box sx={{ height: "900vh", bgcolor: "#262626" }}>
                 <Routes>
                   <Route path="/KK" element={<MainContent />} />
                 </Routes>
