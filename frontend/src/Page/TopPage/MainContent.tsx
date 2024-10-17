@@ -5,7 +5,7 @@ import Information from "./Information/Information";
 
 const MainContent = memo(() => {
   return (
-    <Box sx={{ height: "00px", width: "100%", bgcolor: "#000", color: "#fff" }}>
+    <Box sx={{ height: "100px", width: "100%", bgcolor: "#262626", color: "#fff" }}>
       <StoreImage />
       <Information />
     </Box>
