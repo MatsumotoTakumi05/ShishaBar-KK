@@ -50,7 +50,7 @@ const Information = memo(() => {
   }
 
   return (
-    <Box height="600px">
+    <Box height="700px">
       <Box sx={{ height: "20px", padding: "50px" }}>
         <Typography sx={{ fontFamily: "Academy Engraved LET", fontSize: "40px" }}>Information</Typography>
       </Box>
