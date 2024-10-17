@@ -1,27 +1,58 @@
-import { Box, Container, Link, Stack, Typography } from '@mui/material'
-import { hover } from '@testing-library/user-event/dist/hover'
-import React, { memo } from 'react'
+import { Box, Container, Link, Typography } from '@mui/material'
+import React, { memo, useState } from 'react'
+import CustomDiaLog from '../../../Component/modules/DiaLog/CustomDiaLog'
 
 interface Info {
   date: string,
-  text: string
+  text: string,
+  DialogTittleText: string,
+  DialogDetail: any
 }
+
 const Information = memo(() => {
+  // ダイアログの表示を管理
+  const [isOpenDiaLog, setIsOpenDiaLog] = useState(false);
+  const [selectedInfo, setSelectedInfo] = useState<Info | null>(null); // 選択された情報を保存
+
   const Information: Info[] = [
     {
       date: "2024/10/01",
-      text: "Instagramの公開について"
-    }
-    , {
+      text: "Instagramのご紹介について",
+      DialogTittleText: "お知らせ",
+      DialogDetail: (<>
+        いつもご利用いただきありがとうございます！<br />
+        当店のInstagramアカウントのご紹介です！<br />
+        Instagramではお店のリアルタイムの情報や、キャンペーンのお知らせを行います。
+        ぜひフォローをお願いします！<br />
+        <Link href="https://www.instagram.com/shishabar_kk/" target="_blank" rel="noopener" sx={{ color: "blue" }}>
+          Instagramはこちら
+        </Link>
+      </>)
+    },
+    {
       date: "2024/10/14",
-      text: "HPの公開についてお知らせ"
+      text: "HPの公開についてお知らせ",
+      DialogTittleText: "お知らせ",
+      DialogDetail: (<>いつもご利用いただきありがとうございます！<br />このたび、当店の公式ホームページがオープンしました！<br />ホームページでは、お店の雰囲気やシステム、アクセス情報など、さまざまな内容をお届けしています。これからも、みなさまに楽しんでいただけるよう頑張っていきます。今後ともよろしくお願いいたします！</>)
     }
-
   ]
+
+  // ダイアログを閉じる処理
+  const onClose = () => {
+    setIsOpenDiaLog(false);
+    setSelectedInfo(null); // 選択された情報をクリア
+  }
+
+  // リンクをクリックしてダイアログを開く処理
+  const onOpen = (info: Info) => {
+    setSelectedInfo(info); // クリックされた情報を保存
+    setIsOpenDiaLog(true); // ダイアログを表示
+  }
+
   return (
     <Box height="600px">
       <Box sx={{ height: "20px", padding: "50px" }}>
-        <Typography sx={{ fontFamily: "Academy Engraved LET", fontSize: "40px", }}>Information</Typography>
+        <Typography sx={{ fontFamily: "Academy Engraved LET", fontSize: "40px" }}>Information</Typography>
       </Box>
       <Container sx={{
         position: "absolute",
@@ -32,28 +63,39 @@ const Information = memo(() => {
         height: "500px",
         width: "60%",
         left: "20%",
-        borderRadius: "2%",
-
-      }}
-      >
-        <Container maxWidth="md"  >
-          {Information.map((Info: Info) => {
-            return (
-              <Box sx={{ display: "flex", margin: "50px 0", borderBottom: "dotted 0.5px #fff" }}>
-                <Box sx={{ justifyContent: "flex-start" }} >
-                  <Typography sx={{ fontSize: "25px" }}>{Info.date}</Typography>
-                </Box>
-                <Box sx={{ marginLeft: "200px" }}>
-                  <Link sx={{ fontSize: "25px", "&:hover": { opacity: "0.8"},cursor:"pointer"}} underline="none"> {Info.text} </Link>
-                </Box>
+        borderRadius: "2%"
+      }}>
+        <Container maxWidth="md">
+          {Information.map((info: Info) => (
+            <Box sx={{ display: "flex", margin: "50px 0", borderBottom: "dotted 0.5px #fff" }} key={info.text} onClick={() => onOpen(info)} >
+              <Box sx={{ justifyContent: "flex-start" }}>
+                <Typography sx={{ fontSize: "25px" }}>{info.date}</Typography>
               </Box>
-            )
-          })}
+              <Box sx={{ marginLeft: "200px" }}>
+                <Link
+                  sx={{ fontSize: "25px", "&:hover": { opacity: "0.8" }, cursor: "pointer" }}
+                  underline="none"
 
+                >
+                  {info.text}
+                </Link>
+              </Box>
+            </Box>
+          ))}
+
+          {/* ダイアログの内容を表示 */}
+          {selectedInfo && (
+            <CustomDiaLog
+              open={isOpenDiaLog}
+              onClose={onClose}
+              DialogTittleText={selectedInfo.DialogTittleText}
+              DialogDetail={selectedInfo.DialogDetail}
+            />
+          )}
         </Container>
       </Container>
     </Box>
   )
 })
 
-export default Information
+export default Information;
