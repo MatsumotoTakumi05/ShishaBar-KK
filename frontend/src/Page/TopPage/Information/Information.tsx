@@ -56,7 +56,6 @@ const Information = memo(() => {
       </Box>
       <Container sx={{
         position: "absolute",
-        top: "12%",
         zIndex: 15,
         backgroundColor: "rgb(110, 110, 110, 0.4)",
         color: "#fff",
