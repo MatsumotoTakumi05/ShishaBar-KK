@@ -3,6 +3,7 @@ import React, { memo } from "react";
 import StoreImage from "./StoreImage/StoreImage";
 import Information from "./Information/Information";
 import AboutShisha from "./AboutShisha/AboutShisha";
+import StoreAccess from "./StoreAccess/StoreAccess";
 
 const MainContent = memo(() => {
   return (
@@ -10,6 +11,7 @@ const MainContent = memo(() => {
       <StoreImage />
       <Information />
       <AboutShisha />
+      <StoreAccess />
     </Box>
   );
 });
