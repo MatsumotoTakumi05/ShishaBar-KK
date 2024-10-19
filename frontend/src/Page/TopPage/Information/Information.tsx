@@ -1,6 +1,7 @@
 import { Box, Container, Link, Typography } from '@mui/material'
 import React, { memo, useState } from 'react'
 import CustomDiaLog from '../../../Component/modules/DiaLog/CustomDiaLog'
+import CustomLayout from '../../../Component/modules/Layout/CustomLayout'
 
 interface Info {
   date: string,
@@ -50,10 +51,7 @@ const Information = memo(() => {
   }
 
   return (
-    <Box height="700px">
-      <Box sx={{ height: "20px", padding: "50px" }}>
-        <Typography sx={{ fontFamily: "Academy Engraved LET", fontSize: "40px" }}>Information</Typography>
-      </Box>
+    <CustomLayout tittleText="Information">
       <Container sx={{
         position: "absolute",
         // top: "12%",
@@ -63,11 +61,11 @@ const Information = memo(() => {
         height: "500px",
         width: "60%",
         left: "20%",
-        borderRadius: "2%"
+        borderRadius: "2%",
       }}>
         <Container maxWidth="md">
           {Information.map((info: Info) => (
-            <Box sx={{ display: "flex", margin: "50px 0", borderBottom: "dotted 0.5px #fff" }} key={info.text} onClick={() => onOpen(info)} >
+            <Box sx={{ display: "flex", margin: "50px 0", borderBottom: "dotted 0.5px #fff" }} key={info.text} onClick={() => onOpen(info)}>
               <Box sx={{ justifyContent: "flex-start" }}>
                 <Typography sx={{ fontSize: "25px" }}>{info.date}</Typography>
               </Box>
@@ -89,12 +87,11 @@ const Information = memo(() => {
               open={isOpenDiaLog}
               onClose={onClose}
               DialogTittleText={selectedInfo.DialogTittleText}
-              DialogDetail={selectedInfo.DialogDetail}
-            />
+              DialogDetail={selectedInfo.DialogDetail} />
           )}
         </Container>
       </Container>
-    </Box>
+    </CustomLayout>
   )
 })
 
