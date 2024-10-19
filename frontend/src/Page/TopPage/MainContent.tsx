@@ -10,7 +10,7 @@ const MainContent = memo(() => {
       <StoreImage />
       <Information />
       <ShishaAbout />
-    </Box>
+    </Box >
   );
 });
 

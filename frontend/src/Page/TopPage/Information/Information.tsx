@@ -51,7 +51,6 @@ const Information = memo(() => {
   }
 
   return (
-    // <>
     <CustomLayout tittleText="Information">
       <Container sx={{
         position: "absolute",
