@@ -7,9 +7,9 @@ const StoreAccess = memo(() => {
   return (
     <>
       <Box
-        height="700px"
+        height="1000px"
         sx={{
-          backgroundImage: `url('/Access_BgImage.jpeg')`,
+          backgroundImage: `url('/storeAccess_bgImage.jpeg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -28,9 +28,9 @@ const StoreAccess = memo(() => {
           sx={{ padding: '0 20px' }} // 画面端にぶつからないように余白を追加
         >
           {/* 湯田店 */}
-          <Box sx={{ width: "40%", padding: '20px', borderRadius: '8px' }}>
-            <Typography variant="h5" sx={{ fontWeight: "bold", marginBottom: "16px" }}>湯田店</Typography>
-            <Stack spacing={2}>
+          <Box sx={{ width: "40%", backgroundColor: "rgb(110, 110, 110, 0.4)", padding: '20px', borderRadius: '8px'}}>
+                <Typography variant="h5" sx={{ fontWeight: "bold", marginBottom: "16px" }}>湯田店</Typography>
+                <Stack spacing={2}>
               <Box>
                 <Typography sx={{ fontWeight: "bold" }}>住所:</Typography>
                 <Typography>〒753−0056</Typography>
@@ -63,7 +63,7 @@ const StoreAccess = memo(() => {
           </Box>
 
           {/* 徳山店 */}
-          <Box sx={{ width: "40%",  padding: '20px', borderRadius: '8px' }}>
+          <Box sx={{ width: "40%", backgroundColor: "rgb(110, 110, 110, 0.4)",  padding: '20px', borderRadius: '8px' }}>
             <Typography variant="h5" sx={{ fontWeight: "bold", marginBottom: "16px" }}>徳山店</Typography>
             <Stack spacing={2}>
               <Box>

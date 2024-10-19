@@ -3,6 +3,8 @@ import React, { memo } from "react";
 import StoreImage from "./StoreImage/StoreImage";
 import Information from "./Information/Information";
 import AboutShisha from "./AboutShisha/AboutShisha";
+import StoreAccess from "./StoreAccess/StoreAccess";
+import ShishaAbout from "../ShishaAbout/ShishaAbout";
 
 const MainContent = memo(() => {
   return (
