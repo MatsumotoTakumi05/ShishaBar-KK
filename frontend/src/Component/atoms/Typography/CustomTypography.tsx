@@ -3,15 +3,17 @@ import React, { memo } from 'react'
 
 
 interface Props {
-    displayText: string
+    displayText: any
     fontSize?: string
+    tittleFlag?: boolean
 }
 const CustomTypography = memo((props: Props) => {
-    const { displayText, fontSize } = props
+    const { displayText, fontSize, tittleFlag } = props
 
-    const defaultFontSize = fontSize ? fontSize : "20px"
+    // 1.fontSizeがあるか/2.タイトルか/3.通常
+    const defaultFontSize = fontSize ? fontSize : tittleFlag ? "40px" : "20px"
     return (
-        <Typography fontSize={defaultFontSize}>{displayText}</Typography>
+        <Typography fontSize={defaultFontSize} fontFamily={tittleFlag ? "Academy Engraved LET" : ""} >{displayText}</Typography>
     )
 })
 
