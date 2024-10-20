@@ -3,9 +3,9 @@ import React, { memo } from 'react'
 import CustomTypography from '../../atoms/Typography/CustomTypography'
 
 interface Props {
-    tittleText: any
-    headerBorder?: { [key: string]: string }[] // ヘッダーのBoxに指定するsxの値
-    children: any
+    tittleText: any                            // ヘッダーに表示するタイトル名
+    headerBorder?: { [key: string]: string }[] // ヘッダーのBoxに指定するsxの値（デフォルトでpadding:50pxを指定）
+    children: any                              // メインの表示内容
 }
 
 const CustomLayout = memo((props: Props) => {
@@ -40,7 +40,6 @@ const CustomLayout = memo((props: Props) => {
         ...(headerBorder ? headerBorder.reduce((acc, curr) => ({ ...acc, ...curr }), {}) : {})
     }
 
-    console.log(headerBorderStyle)
 
     return (
         <Box height={customHeight("border")}>
