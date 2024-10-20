@@ -20,7 +20,7 @@ const styles = {
     fontSize: '40px',
   },
   storeBox: {
-    width: { xs: '90%', sm: '60%', md: '40%' }, // レスポンシブな幅指定
+    width: { xs: '90%', sm: '60%', md: '40%' },
     backgroundColor: 'rgba(110, 110, 110, 0.4)',
     padding: '20px',
     borderRadius: '8px',
@@ -28,7 +28,7 @@ const styles = {
   storeTitle: {
     fontWeight: 'bold',
     marginBottom: '16px',
-    fontSize: { xs: '24px', sm: '28px', md: '32px' }, // レスポンシブなフォントサイズ
+    fontSize: { xs: '24px', sm: '28px', md: '32px' },
   },
   storeDetailText: {
     fontWeight: 'bold',
@@ -79,7 +79,15 @@ const StoreAccess = memo(() => {
               </Box>
               <Box>
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
-                <Typography sx={styles.storeContentText}>080-5610-0408</Typography>
+                <Typography sx={styles.storeContentText}>
+                  <Link
+                    href="tel:08056100408" 
+                    underline="none"
+                    sx={{ color: 'inherit' }}
+                  >
+                    080-5610-0408
+                  </Link>
+                  </Typography>
               </Box>
               <Box>
                 <Typography sx={styles.storeDetailText}>営業時間:</Typography>
@@ -125,7 +133,15 @@ const StoreAccess = memo(() => {
               </Box>
               <Box>
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
-                <Typography sx={styles.storeContentText}>080-8243-7202</Typography>
+                <Typography sx={styles.storeContentText}>
+                  <Link
+                      href="tel:080-8243-7202" 
+                      underline="none"
+                      sx={{ color: 'inherit' }}
+                    >
+                      080-8243-7202
+                    </Link>
+                </Typography>
               </Box>
               <Box>
                 <Typography sx={styles.storeDetailText}>営業時間:</Typography>
