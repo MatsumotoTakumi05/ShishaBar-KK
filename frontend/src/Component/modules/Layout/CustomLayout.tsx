@@ -1,16 +1,17 @@
-import { Box } from '@mui/material'
-import React, { memo } from 'react'
-import CustomTypography from '../../atoms/Typography/CustomTypography'
+import { Box } from '@mui/material';
+import React, { memo } from 'react';
+import CustomTypography from '../../atoms/Typography/CustomTypography';
 
 interface Props {
-    tittleText: any
-    backgroundBorder?: { [key: string]: string }[] // 外側のBoxに指定するsxの値
-    headerBorder?: { [key: string]: string }[] // ヘッダーのBoxに指定するsxの値
-    children: any
+    tittleText: string; // タイトルテキストの型をstringに変更
+    backgroundBorder?: { [key: string]: string }[]; // 外側のBoxに指定するsxの値
+    headerBorder?: { [key: string]: string }[]; // ヘッダーのBoxに指定するsxの値
+    children: React.ReactNode; // childrenの型をReact.ReactNodeに変更
+    ref?: React.Ref<HTMLDivElement>; // refの型を明示化
 }
 
-const CustomLayout = memo((props: Props) => {
-    const { tittleText, backgroundBorder, headerBorder, children } = props
+const CustomLayout = memo(React.forwardRef<HTMLDivElement, Props>((props, ref) => {
+    const { tittleText, backgroundBorder, headerBorder, children } = props;
 
     /**
      * タグ別の高さ指定関数
@@ -18,48 +19,39 @@ const CustomLayout = memo((props: Props) => {
      * @returns 
      */
     const customHeight = (id: string) => {
-        let val = "auto"
         switch (id) {
             case "border":
-                val = "700px"
-                break;
+                return "700px";
             case "headerBorder":
-                val = "20px"
-                break;
+                return "20px";
             case "mainBorder":
-                val = "680px"
-                break;
+                return "680px";
             default:
-                val = "auto"
+                return "auto";
         }
-        return val
-    }
+    };
 
     // headerBorder が配列なので、オブジェクトとしてマージ
     const headerBorderStyle = {
         padding: "50px",
-        ...(headerBorder ? headerBorder.reduce((acc, curr) => ({ ...acc, ...curr }), {}) : {})
-    }
+        ...(headerBorder ? Object.assign({}, ...headerBorder) : {}) // 配列をオブジェクトにマージ
+    };
 
     // backgroundBorderが配列なので、オブジェクトに変換
     const backgroundImageStyle = {
-        ...(backgroundBorder ? backgroundBorder.reduce((acc, curr) => ({
-            ...acc, ...curr
-        }), {}) :
-            {})
-    }
+        ...(backgroundBorder ? Object.assign({}, ...backgroundBorder) : {}) // 配列をオブジェクトにマージ
+    };
 
     return (
-        <Box height={customHeight("border")} sx={backgroundImageStyle}>
+        <Box height={customHeight("border")} sx={backgroundImageStyle} ref={ref}>
             <Box sx={headerBorderStyle} height={customHeight("headerBorder")}>
                 <CustomTypography displayText={tittleText} tittleFlag />
             </Box>
-            <Box height={customHeight("mainBorder")} >
-                {/* 他のコンテンツ */}
+            <Box height={customHeight("mainBorder")}>
                 {children}
             </Box>
         </Box>
-    )
-})
+    );
+}));
 
-export default CustomLayout
+export default CustomLayout;
