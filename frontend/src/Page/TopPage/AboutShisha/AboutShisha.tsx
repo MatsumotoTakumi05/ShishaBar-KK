@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Button, Container, Typography } from '@mui/material'
 import React, { memo } from 'react'
 import CustomLayout from '../../../Component/modules/Layout/CustomLayout'
 
@@ -12,6 +12,7 @@ const AboutShisha = memo(() => {
                         フルーツやミントなどのフレーバー付きタバコ葉を炭で加熱し、水を通して吸うため、煙がまろやかになるのが特徴です。
                         数多くのフレーバーの中からお気に入りを見つけ、ぜひリラックスしたひと時をお過ごしください。
                     </Typography>
+                    <Button variant="outlined">Read More→</Button>
                 </Box>
             </Container>
 
