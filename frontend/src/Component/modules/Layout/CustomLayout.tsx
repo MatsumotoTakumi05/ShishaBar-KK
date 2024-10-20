@@ -4,12 +4,13 @@ import CustomTypography from '../../atoms/Typography/CustomTypography'
 
 interface Props {
     tittleText: any
+    backgroundBorder?: { [key: string]: string }[] // 外側のBoxに指定するsxの値
     headerBorder?: { [key: string]: string }[] // ヘッダーのBoxに指定するsxの値
     children: any
 }
 
 const CustomLayout = memo((props: Props) => {
-    const { tittleText, headerBorder, children } = props
+    const { tittleText, backgroundBorder, headerBorder, children } = props
 
     /**
      * タグ別の高さ指定関数
@@ -34,16 +35,22 @@ const CustomLayout = memo((props: Props) => {
         return val
     }
 
-    // `headerBorder` が配列なので、オブジェクトとしてマージ
+    // headerBorder が配列なので、オブジェクトとしてマージ
     const headerBorderStyle = {
         padding: "50px",
         ...(headerBorder ? headerBorder.reduce((acc, curr) => ({ ...acc, ...curr }), {}) : {})
     }
 
-    console.log(headerBorderStyle)
+    // backgroundBorderが配列なので、オブジェクトに変換
+    const backgroundImageStyle = {
+        ...(backgroundBorder ? backgroundBorder.reduce((acc, curr) => ({
+            ...acc, ...curr
+        }), {}) :
+            {})
+    }
 
     return (
-        <Box height={customHeight("border")}>
+        <Box height={customHeight("border")} sx={backgroundImageStyle}>
             <Box sx={headerBorderStyle} height={customHeight("headerBorder")}>
                 <CustomTypography displayText={tittleText} tittleFlag />
             </Box>
