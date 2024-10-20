@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import MainContent from "./Page/TopPage/MainContent";
 import YearConf from "./Page/YearConf/YearConf";
 import { Fade } from "react-swift-reveal";
+import DetailShisha from "./Page/DetailShisha/DetailShisha";
 
 const App = memo(() => {
   const [path, setPath] = useState("/");
@@ -29,9 +30,10 @@ const App = memo(() => {
               <Header />
             </Box>
             <Fade duration={1000}>
-              <Box sx={{ height: "900vh", bgcolor: "#262626", color: "#fff" }}>
+              <Box sx={{ height: "100%", bgcolor: "#262626", color: "#fff" }}>
                 <Routes>
                   <Route path="/KK" element={<MainContent />} />
+                  <Route path="/KK/AboutShisha" element={<DetailShisha />} />
                 </Routes>
               </Box>
             </Fade>
