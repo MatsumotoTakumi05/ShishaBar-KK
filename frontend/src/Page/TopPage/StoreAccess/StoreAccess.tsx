@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material';
+import { Link, Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import React, { memo } from 'react';
@@ -59,9 +59,18 @@ const StoreAccess = memo(() => {
             <Stack spacing={2}>
               <Box>
                 <Typography sx={styles.storeDetailText}>住所:</Typography>
-                <Typography sx={styles.storeContentText}>〒753−0056</Typography>
-                <Typography sx={styles.storeContentText}>山口県山口市湯田温泉１丁目７−２２</Typography>
-              </Box>
+                <Typography sx={styles.storeContentText}>
+                <Link
+                    href="https://maps.app.goo.gl/5KeYMFDBV4qLj6Dy5"
+                    target="_blank"
+                    rel="noopener"
+                    underline="none"
+                    sx={{ color: 'inherit' }} 
+                  >
+                    〒753−0056 <br/>山口県山口市湯田温泉１丁目７−２２
+                  </Link>
+                </Typography>
+                </Box>
               <Box>
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
                 <Typography sx={styles.storeContentText}>080-5610-0408</Typography>
@@ -93,9 +102,19 @@ const StoreAccess = memo(() => {
             <Typography sx={styles.storeTitle}>徳山店</Typography>
             <Stack spacing={2}>
               <Box>
-                <Typography sx={styles.storeDetailText}>住所:</Typography>
-                <Typography sx={styles.storeContentText}>〒745−0014</Typography>
-                <Typography sx={styles.storeContentText}>山口県周南市飯島町２丁目１６　セウズール２−１</Typography>
+              <Typography sx={styles.storeDetailText}>住所:</Typography>
+                {/* Googleマップリンクを追加 */}
+                <Typography sx={styles.storeContentText}>
+                  <Link
+                    href="https://maps.app.goo.gl/yc39m7XBcnN9yoco7"
+                    target="_blank"
+                    rel="noopener"
+                    underline="none"
+                    sx={{ color: 'inherit' }} 
+                  >
+                    〒745−0014 <br/>山口県周南市飯島町２丁目１６　セウズール２−１
+                  </Link>
+                </Typography>
               </Box>
               <Box>
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
