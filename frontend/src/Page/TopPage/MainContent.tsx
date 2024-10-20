@@ -8,12 +8,12 @@ import ShishaAbout from "../ShishaAbout/ShishaAbout";
 
 const MainContent = memo(() => {
   return (
-    <Box sx={{ height: "100px", width: "100%", bgcolor: "#262626", color: "#fff" }}>
+    <>
       <StoreImage />
       <Information />
       <ShishaAbout />
       <StoreAccess />
-    </Box>
+    </>
   );
 });
 

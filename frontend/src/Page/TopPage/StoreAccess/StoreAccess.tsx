@@ -10,6 +10,8 @@ const styles = {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    width: '100vw',
   },
   headerBox: {
     height: '20px',
@@ -21,7 +23,6 @@ const styles = {
   },
   storeBox: {
     width: { xs: '90%', sm: '60%', md: '40%' },
-    backgroundColor: 'rgba(110, 110, 110, 0.4)',
     padding: '20px',
     borderRadius: '8px',
   },
@@ -56,8 +57,11 @@ const StoreAccess = memo(() => {
           direction="row"
           justifyContent="center"
           alignItems="flex-start"
-          spacing={8}
-          sx={{ padding: '0 20px', flexDirection: isSmallScreen ? 'column' : 'row' }} // スマホでは縦並びにする
+          spacing={0}
+          width="80%"
+          borderRadius="2%"
+          margin="0 auto"
+          sx={{ backgroundColor: 'rgba(110, 110, 110, 0.4)', padding: '0 20px', flexDirection: isSmallScreen ? 'column' : 'row' }} // スマホでは縦並びにする
         >
           {/* 湯田店 */}
           <Box sx={styles.storeBox}>
@@ -70,8 +74,6 @@ const StoreAccess = memo(() => {
                     href="https://maps.app.goo.gl/5KeYMFDBV4qLj6Dy5"
                     target="_blank"
                     rel="noopener"
-                    underline="none"
-                    sx={{ color: 'inherit' }}
                   >
                     〒753−0056 <br />山口県山口市湯田温泉１丁目７−２２
                   </Link>
@@ -82,8 +84,6 @@ const StoreAccess = memo(() => {
                 <Typography sx={styles.storeContentText}>
                   <Link
                     href="tel:08056100408" 
-                    underline="none"
-                    sx={{ color: 'inherit' }}
                   >
                     080-5610-0408
                   </Link>
@@ -124,8 +124,6 @@ const StoreAccess = memo(() => {
                     href="https://maps.app.goo.gl/yc39m7XBcnN9yoco7"
                     target="_blank"
                     rel="noopener"
-                    underline="none"
-                    sx={{ color: 'inherit' }}
                   >
                     〒745−0014 <br />山口県周南市飯島町２丁目１６　セウズール２−１
                   </Link>
@@ -136,8 +134,6 @@ const StoreAccess = memo(() => {
                 <Typography sx={styles.storeContentText}>
                   <Link
                       href="tel:080-8243-7202" 
-                      underline="none"
-                      sx={{ color: 'inherit' }}
                     >
                       080-8243-7202
                     </Link>
