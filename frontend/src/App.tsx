@@ -29,7 +29,7 @@ const App = memo(() => {
               <Header />
             </Box>
             <Fade duration={1000}>
-              <Box sx={{ height: "900vh", bgcolor: "#262626" }}>
+              <Box sx={{ height: "900vh", bgcolor: "#262626", color: "#fff" }}>
                 <Routes>
                   <Route path="/KK" element={<MainContent />} />
                 </Routes>
