@@ -83,11 +83,11 @@ const StoreAccess = memo(() => {
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
                 <Typography sx={styles.storeContentText}>
                   <Link
-                    href="tel:08056100408" 
+                    href="tel:08056100408"
                   >
                     080-5610-0408
                   </Link>
-                  </Typography>
+                </Typography>
               </Box>
               <Box>
                 <Typography sx={styles.storeDetailText}>営業時間:</Typography>
@@ -133,10 +133,10 @@ const StoreAccess = memo(() => {
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
                 <Typography sx={styles.storeContentText}>
                   <Link
-                      href="tel:080-8243-7202" 
-                    >
-                      080-8243-7202
-                    </Link>
+                    href="tel:080-8243-7202"
+                  >
+                    080-8243-7202
+                  </Link>
                 </Typography>
               </Box>
               <Box>

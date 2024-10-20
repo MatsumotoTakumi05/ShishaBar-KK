@@ -50,8 +50,9 @@ const Information = memo(() => {
     setIsOpenDiaLog(true); // ダイアログを表示
   }
 
+
   return (
-    <CustomLayout tittleText="Information">
+    <CustomLayout tittleText="Information" >
       <Container sx={{
         position: "absolute",
         // top: "12%",
