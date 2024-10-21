@@ -5,6 +5,7 @@ import Information from "./Information/Information";
 import AboutShisha from "./AboutShisha/AboutShisha";
 import StoreAccess from "./StoreAccess/StoreAccess";
 import ShishaAbout from "../ShishaAbout/ShishaAbout";
+import Menu from "./Menu/Menu ";
 
 const MainContent = memo(() => {
   return (
@@ -13,6 +14,7 @@ const MainContent = memo(() => {
       <Information />
       <ShishaAbout />
       <StoreAccess />
+      <Menu />
     </>
   );
 });
