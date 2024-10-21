@@ -4,10 +4,7 @@ import Typography from '@mui/material/Typography';
 import React, { memo, useEffect, useRef } from 'react';
 import { useTheme } from '@mui/material/styles';
 
-interface Props {
-  setXScale: React.Dispatch<React.SetStateAction<number[]>>,
-  setYScale: React.Dispatch<React.SetStateAction<number[]>>
-}
+
 
 const styles = {
   pageWrapper: {
@@ -20,7 +17,7 @@ const styles = {
   },
   headerBox: {
     height: '20px',
-    padding: '50px',
+    padding: "80px 60px",
   },
   headerText: {
     fontFamily: 'Academy Engraved LET',
@@ -45,8 +42,7 @@ const styles = {
   },
 };
 
-const StoreAccess = memo((props: Props) => {
-  const { setXScale, setYScale } = props
+const StoreAccess = memo(() => {
 
   // 各コンポーネントのrefを作成（型を指定）
   const storeAccessRef = useRef<HTMLDivElement | null>(null);
@@ -56,25 +52,10 @@ const StoreAccess = memo((props: Props) => {
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md')); // タブレット向けのブレークポイント
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('md')); // PC向けのブレークポイント
 
-  useEffect(() => {
-    if (storeAccessRef.current) {
-      const storeAccessPosition = storeAccessRef.current.getBoundingClientRect();
-      setXScale((prevXScale: number[]) => {
-        const updatedXScale = [...prevXScale]; // 現在の状態をコピー
-        updatedXScale[3] = storeAccessPosition.x; // 第一インデックスを更新
-        return updatedXScale; // 更新した配列を返す
-      });
-      setYScale((prevYScale: number[]) => {
-        const updatedYScale = [...prevYScale]; // 現在の状態をコピー
-        updatedYScale[3] = storeAccessPosition.y; // 第一インデックスを更新
-        return updatedYScale; // 更新した配列を返す
-      });
-    }
-  }, [])
   return (
     <>
-      <Box height="1000px" sx={styles.pageWrapper} ref={storeAccessRef}>
-        <Box sx={styles.headerBox}>
+      <Box height="1000px" sx={styles.pageWrapper} ref={storeAccessRef} >
+        <Box sx={styles.headerBox} id="access">
           <Typography sx={styles.headerText}>ACCESS／STORE</Typography>
         </Box>
 
