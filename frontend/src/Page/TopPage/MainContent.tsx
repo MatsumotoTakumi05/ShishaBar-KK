@@ -6,19 +6,14 @@ import AboutShisha from "./AboutShisha/AboutShisha";
 import StoreAccess from "./StoreAccess/StoreAccess";
 import Menu from "./Menu/Menu ";
 
-interface Props {
-  setXScale: React.Dispatch<React.SetStateAction<number[]>>,
-  setYScale: React.Dispatch<React.SetStateAction<number[]>>
-}
-const MainContent = memo((props: Props) => {
-  const { setXScale, setYScale } = props
+const MainContent = memo(() => {
 
   return (
     <>
-      <StoreImage setXScale={setXScale} setYScale={setYScale} />
-      <Information setXScale={setXScale} setYScale={setYScale} />
-      <AboutShisha setXScale={setXScale} setYScale={setYScale} />
-      <StoreAccess setXScale={setXScale} setYScale={setYScale} />
+      <StoreImage />
+      <Information />
+      <AboutShisha />
+      <StoreAccess />
       <Menu />
     </>
   )
