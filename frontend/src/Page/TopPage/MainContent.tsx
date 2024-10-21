@@ -1,22 +1,28 @@
 import { Box } from "@mui/material";
-import React, { memo } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import StoreImage from "./StoreImage/StoreImage";
 import Information from "./Information/Information";
 import AboutShisha from "./AboutShisha/AboutShisha";
 import StoreAccess from "./StoreAccess/StoreAccess";
-import ShishaAbout from "../ShishaAbout/ShishaAbout";
 import Menu from "./Menu/Menu ";
 
-const MainContent = memo(() => {
+interface Props {
+  setXScale: React.Dispatch<React.SetStateAction<number[]>>,
+  setYScale: React.Dispatch<React.SetStateAction<number[]>>
+}
+const MainContent = memo((props: Props) => {
+  const { setXScale, setYScale } = props
+
   return (
     <>
-      <StoreImage />
-      <Information />
-      <ShishaAbout />
-      <StoreAccess />
+      <StoreImage setXScale={setXScale} setYScale={setYScale} />
+      <Information setXScale={setXScale} setYScale={setYScale} />
+      <AboutShisha setXScale={setXScale} setYScale={setYScale} />
+      <StoreAccess setXScale={setXScale} setYScale={setYScale} />
       <Menu />
     </>
-  );
-});
+  )
+})
+
 
 export default MainContent;

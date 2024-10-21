@@ -1,5 +1,5 @@
 import { Box, Container, Link, Typography } from '@mui/material'
-import React, { memo, useState } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import CustomDiaLog from '../../../Component/modules/DiaLog/CustomDiaLog'
 import CustomLayout from '../../../Component/modules/Layout/CustomLayout'
 
@@ -9,8 +9,16 @@ interface Info {
   DialogTittleText: string,
   DialogDetail: any
 }
+interface Props {
+  setXScale: React.Dispatch<React.SetStateAction<number[]>>,
+  setYScale: React.Dispatch<React.SetStateAction<number[]>>
+}
+const Information = memo((props: Props) => {
+  const { setXScale, setYScale } = props
 
-const Information = memo(() => {
+  // 各コンポーネントのrefを作成（型を指定）
+  const informationRef = useRef<HTMLDivElement | null>(null);
+
   // ダイアログの表示を管理
   const [isOpenDiaLog, setIsOpenDiaLog] = useState(false);
   const [selectedInfo, setSelectedInfo] = useState<Info | null>(null); // 選択された情報を保存
@@ -50,8 +58,23 @@ const Information = memo(() => {
     setIsOpenDiaLog(true); // ダイアログを表示
   }
 
+  useEffect(() => {
+    if (informationRef.current) {
+      const informationPosition = informationRef.current.getBoundingClientRect();
+      setXScale((prevXScale: number[]) => {
+        const updatedXScale = [...prevXScale]; // 現在の状態をコピー
+        updatedXScale[1] = informationPosition.x; // 第一インデックスを更新
+        return updatedXScale; // 更新した配列を返す
+      });
+      setYScale((prevYScale: number[]) => {
+        const updatedYScale = [...prevYScale]; // 現在の状態をコピー
+        updatedYScale[1] = informationPosition.y; // 第一インデックスを更新
+        return updatedYScale; // 更新した配列を返す
+      });
+    }
+  }, [])
   return (
-    <CustomLayout tittleText="Information">
+    <CustomLayout tittleText="Information" ref={informationRef}>
       <Container sx={{
         position: "absolute",
         // top: "12%",

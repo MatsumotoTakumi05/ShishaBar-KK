@@ -1,8 +1,13 @@
 import { Link, Stack, useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import React, { memo } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { useTheme } from '@mui/material/styles';
+
+interface Props {
+  setXScale: React.Dispatch<React.SetStateAction<number[]>>,
+  setYScale: React.Dispatch<React.SetStateAction<number[]>>
+}
 
 const styles = {
   pageWrapper: {
@@ -40,15 +45,35 @@ const styles = {
   },
 };
 
-const StoreAccess = memo(() => {
+const StoreAccess = memo((props: Props) => {
+  const { setXScale, setYScale } = props
+
+  // 各コンポーネントのrefを作成（型を指定）
+  const storeAccessRef = useRef<HTMLDivElement | null>(null);
+
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); // スマホ向けのブレークポイント
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md')); // タブレット向けのブレークポイント
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('md')); // PC向けのブレークポイント
 
+  useEffect(() => {
+    if (storeAccessRef.current) {
+      const storeAccessPosition = storeAccessRef.current.getBoundingClientRect();
+      setXScale((prevXScale: number[]) => {
+        const updatedXScale = [...prevXScale]; // 現在の状態をコピー
+        updatedXScale[3] = storeAccessPosition.x; // 第一インデックスを更新
+        return updatedXScale; // 更新した配列を返す
+      });
+      setYScale((prevYScale: number[]) => {
+        const updatedYScale = [...prevYScale]; // 現在の状態をコピー
+        updatedYScale[3] = storeAccessPosition.y; // 第一インデックスを更新
+        return updatedYScale; // 更新した配列を返す
+      });
+    }
+  }, [])
   return (
     <>
-      <Box height="1000px" sx={styles.pageWrapper}>
+      <Box height="1000px" sx={styles.pageWrapper} ref={storeAccessRef}>
         <Box sx={styles.headerBox}>
           <Typography sx={styles.headerText}>ACCESS／STORE</Typography>
         </Box>
@@ -83,11 +108,11 @@ const StoreAccess = memo(() => {
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
                 <Typography sx={styles.storeContentText}>
                   <Link
-                    href="tel:08056100408" 
+                    href="tel:08056100408"
                   >
                     080-5610-0408
                   </Link>
-                  </Typography>
+                </Typography>
               </Box>
               <Box>
                 <Typography sx={styles.storeDetailText}>営業時間:</Typography>
@@ -133,10 +158,10 @@ const StoreAccess = memo(() => {
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
                 <Typography sx={styles.storeContentText}>
                   <Link
-                      href="tel:080-8243-7202" 
-                    >
-                      080-8243-7202
-                    </Link>
+                    href="tel:080-8243-7202"
+                  >
+                    080-8243-7202
+                  </Link>
                 </Typography>
               </Box>
               <Box>
