@@ -4,16 +4,9 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import React, { memo, useEffect, useRef, useState } from 'react'
 import './StoreImage.css'
 
-interface Props {
-    setXScale: React.Dispatch<React.SetStateAction<number[]>>,
-    setYScale: React.Dispatch<React.SetStateAction<number[]>>
-}
 
-const StoreImage = memo((props: Props) => {
-    const { setXScale, setYScale } = props
+const StoreImage = memo(() => {
 
-    // 各コンポーネントのrefを作成（型を指定）
-    const storeImageRef = useRef<HTMLDivElement | null>(null);
 
     // 表示する画像リスト
     const topImage = ["./ShishaAbout_BgImage.jpeg", "./Access_BgImage.jpeg", "./Flavor_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg", "./ShishaAbout_BgImage.jpeg"]
@@ -54,26 +47,10 @@ const StoreImage = memo((props: Props) => {
         }
     }
 
-    useEffect(() => {
-        // 各コンポーネントの位置を取得
-        if (storeImageRef.current) {
-            const storeImagePosition = storeImageRef.current.getBoundingClientRect();
-            setXScale((prevXScale: number[]) => {
-                const updatedXScale = [...prevXScale]; // 現在の状態をコピー
-                updatedXScale[0] = storeImagePosition.x; // 第一インデックスを更新
-                return updatedXScale; // 更新した配列を返す
-            });
-            setYScale((prevYScale: number[]) => {
-                const updatedYScale = [...prevYScale]; // 現在の状態をコピー
-                updatedYScale[0] = storeImagePosition.y; // 第一インデックスを更新
-                return updatedYScale; // 更新した配列を返す
-            });
-        }
-    }, [])
 
     return (
         <>
-            <Box sx={{ height: "600px", position: "relative" }} ref={storeImageRef}>
+            <Box sx={{ height: "600px", position: "relative" }} >
                 <Box
                     component="img"
                     src={topImage[currentIndex]}  // 現在の画像を表示

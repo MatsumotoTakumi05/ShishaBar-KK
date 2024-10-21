@@ -3,17 +3,10 @@ import React, { memo, useEffect, useRef } from 'react'
 import CustomLayout from '../../../Component/modules/Layout/CustomLayout'
 import { useNavigate } from 'react-router-dom'
 
-interface Props {
-    setXScale: React.Dispatch<React.SetStateAction<number[]>>,
-    setYScale: React.Dispatch<React.SetStateAction<number[]>>
-}
 
-const AboutShisha = memo((props: Props) => {
-    const { setXScale, setYScale } = props
+const AboutShisha = memo(() => {
 
 
-    // 各コンポーネントのrefを作成（型を指定）
-    const aboutShishaRef = useRef<HTMLDivElement | null>(null);
 
     // navigateの定義
     const navigate = useNavigate()
@@ -27,24 +20,10 @@ const AboutShisha = memo((props: Props) => {
         navigate("/KK/AboutShisha")
     }
 
-    useEffect(() => {
-        if (aboutShishaRef.current) {
-            const aboutShishaPosition = aboutShishaRef.current.getBoundingClientRect();
-            setXScale((prevXScale: number[]) => {
-                const updatedXScale = [...prevXScale]; // 現在の状態をコピー
-                updatedXScale[2] = aboutShishaPosition.x; // 第一インデックスを更新
-                return updatedXScale; // 更新した配列を返す
-            });
-            setYScale((prevYScale: number[]) => {
-                const updatedYScale = [...prevYScale]; // 現在の状態をコピー
-                updatedYScale[2] = aboutShishaPosition.y; // 第一インデックスを更新
-                return updatedYScale; // 更新した配列を返す
-            });
-        }
-    }, [])
+
 
     return (
-        <CustomLayout tittleText="What's Shisha" backgroundBorder={bgImageStyle} ref={aboutShishaRef}>
+        <CustomLayout id="about" tittleText="What's Shisha" backgroundBorder={bgImageStyle} >
             <Container maxWidth="md" sx={{ display: "flex", width: "100%", }}>
                 <Box sx={{ width: "50%", padding: "30px" }} >
                     <Typography sx={{ fontSize: "24px" }}>
