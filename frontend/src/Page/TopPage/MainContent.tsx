@@ -4,6 +4,7 @@ import StoreImage from "./StoreImage/StoreImage";
 import Information from "./Information/Information";
 import AboutShisha from "./AboutShisha/AboutShisha";
 import StoreAccess from "./StoreAccess/StoreAccess";
+import Menu from "./Menu/Menu ";
 
 interface Props {
   setXScale: React.Dispatch<React.SetStateAction<number[]>>,
@@ -18,6 +19,7 @@ const MainContent = memo((props: Props) => {
       <Information setXScale={setXScale} setYScale={setYScale} />
       <AboutShisha setXScale={setXScale} setYScale={setYScale} />
       <StoreAccess setXScale={setXScale} setYScale={setYScale} />
+      <Menu />
     </>
   )
 })
