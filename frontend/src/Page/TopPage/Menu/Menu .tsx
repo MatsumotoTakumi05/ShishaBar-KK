@@ -53,7 +53,7 @@ const styles = {
   }
 }
 
-const Menu  = memo(() => {
+const Menu = memo(() => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); // スマホ向けのブレークポイント
 
@@ -63,87 +63,87 @@ const Menu  = memo(() => {
 
   return (
     <>
-    <Box height="800px" sx={styles.pageWrapper}>
-    <CustomLayout tittleText={"Menu"}>
-      <Stack
-        direction="row"
-        justifyContent="space-evenly"
-        alignItems="flex-start"
-        spacing={4}
-        // height="80%"
-        width="80%"
-        borderRadius="2%"
-        margin="0 auto"
-        sx={{ padding: '20px', flexDirection: isSmallScreen ? 'column' : 'row' }}
-      >
-        {/* Shisha Card */}
-        <Card sx={{ maxWidth: 500, margin: 10 }}>
-          <CardActionArea onClick={() => handleCardClick("#")}>
-            <CardMedia
-              component="img"
-              sx={styles.cardImageStyle}  // 画像のサイズを指定
-              image="/Shisha.jpeg"
-              alt="#"
-            />
-            <CardContent sx={styles.menuCard}>
-              <Typography gutterBottom variant="h5" component="div" sx={styles.cardTitleStyle}>
-                Shisha
-              </Typography>
-              <Typography variant="body2" sx={styles.cardBodyStyle}>
-                基本料金<br/>
-                フレーバー<br/>
-                etc…
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+      <Box height="800px" sx={styles.pageWrapper}>
+        <CustomLayout tittleText={"Menu"} id="menu">
+          <Stack
+            direction="row"
+            justifyContent="space-evenly"
+            alignItems="flex-start"
+            spacing={4}
+            // height="80%"
+            width="80%"
+            borderRadius="2%"
+            margin="0 auto"
+            sx={{ padding: '20px', flexDirection: isSmallScreen ? 'column' : 'row' }}
+          >
+            {/* Shisha Card */}
+            <Card sx={{ maxWidth: 500, margin: 10 }}>
+              <CardActionArea onClick={() => handleCardClick("#")}>
+                <CardMedia
+                  component="img"
+                  sx={styles.cardImageStyle}  // 画像のサイズを指定
+                  image="/Shisha.jpeg"
+                  alt="#"
+                />
+                <CardContent sx={styles.menuCard}>
+                  <Typography gutterBottom variant="h5" component="div" sx={styles.cardTitleStyle}>
+                    Shisha
+                  </Typography>
+                  <Typography variant="body2" sx={styles.cardBodyStyle}>
+                    基本料金<br />
+                    フレーバー<br />
+                    etc…
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
 
-        {/* Drink Card */}
-        <Card sx={{ maxWidth: 500, margin: 10 }}>
-          <CardActionArea onClick={() => handleCardClick("#")}>
-            <CardMedia
-              component="img"
-              sx={styles.cardImageStyle}  // 画像のサイズを指定
-              image="/Drink.jpeg"
-              alt="#"
-            />
-            <CardContent sx={styles.menuCard}>
-              <Typography gutterBottom variant="h5" component="div" sx={styles.cardTitleStyle}>
-                Drink
-              </Typography>
-              <Typography variant="body2" sx={styles.cardBodyStyle}>
-                ハイボール<br/>
-                カクテル<br/>
-                etc…
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+            {/* Drink Card */}
+            <Card sx={{ maxWidth: 500, margin: 10 }}>
+              <CardActionArea onClick={() => handleCardClick("#")}>
+                <CardMedia
+                  component="img"
+                  sx={styles.cardImageStyle}  // 画像のサイズを指定
+                  image="/Drink.jpeg"
+                  alt="#"
+                />
+                <CardContent sx={styles.menuCard}>
+                  <Typography gutterBottom variant="h5" component="div" sx={styles.cardTitleStyle}>
+                    Drink
+                  </Typography>
+                  <Typography variant="body2" sx={styles.cardBodyStyle}>
+                    ハイボール<br />
+                    カクテル<br />
+                    etc…
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
 
-        {/* Snack Card */}
-        <Card sx={{ maxWidth: 500, margin: 10 }}>
-          <CardActionArea onClick={() => handleCardClick("#")}>
-            <CardMedia
-              component="img"
-              sx={styles.cardImageStyle}  // 画像のサイズを指定
-              image="/Snack.jpeg"
-              alt="#"
-            />
-            <CardContent sx={styles.menuCard}>
-              <Typography gutterBottom variant="h5" component="div" sx={styles.cardTitleStyle}>
-                Snack
-              </Typography>
-              <Typography variant="body2" sx={styles.cardBodyStyle}>
-                スナック菓子<br/>
-                ナッツ<br/>
-                etc…
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Stack>
-    </CustomLayout>
-    </Box>
+            {/* Snack Card */}
+            <Card sx={{ maxWidth: 500, margin: 10 }}>
+              <CardActionArea onClick={() => handleCardClick("#")}>
+                <CardMedia
+                  component="img"
+                  sx={styles.cardImageStyle}  // 画像のサイズを指定
+                  image="/Snack.jpeg"
+                  alt="#"
+                />
+                <CardContent sx={styles.menuCard}>
+                  <Typography gutterBottom variant="h5" component="div" sx={styles.cardTitleStyle}>
+                    Snack
+                  </Typography>
+                  <Typography variant="body2" sx={styles.cardBodyStyle}>
+                    スナック菓子<br />
+                    ナッツ<br />
+                    etc…
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Stack>
+        </CustomLayout>
+      </Box>
     </>
   )
 })
