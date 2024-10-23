@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import React, { memo } from 'react';
 import { useTheme } from '@mui/material/styles';
 import CustomLayout from '../../../Component/modules/Layout/CustomLayout';
+import { useNavigate } from 'react-router-dom';
 
 // 共通のスタイル変数を定義
 const styles = {
@@ -57,8 +58,9 @@ const Menu = memo(() => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); // スマホ向けのブレークポイント
 
+  const navigate = useNavigate()
   const handleCardClick = (url: string) => {
-    window.location.href = url;
+    navigate(url)
   };
 
   return (
@@ -78,12 +80,12 @@ const Menu = memo(() => {
           >
             {/* Shisha Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
-              <CardActionArea onClick={() => handleCardClick("#")}>
+              <CardActionArea onClick={() => handleCardClick("/ShishaPage")}>
                 <CardMedia
                   component="img"
                   sx={styles.cardImageStyle}  // 画像のサイズを指定
                   image="/Shisha.jpeg"
-                  alt="#"
+                  alt="Shisha"
                 />
                 <CardContent sx={styles.menuCard}>
                   <Typography gutterBottom variant="h5" component="div" sx={styles.cardTitleStyle}>
