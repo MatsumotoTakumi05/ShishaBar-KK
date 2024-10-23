@@ -80,7 +80,7 @@ const Menu = memo(() => {
           >
             {/* Shisha Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
-              <CardActionArea onClick={() => handleCardClick("/ShishaPage")}>
+              <CardActionArea onClick={() => handleCardClick("./ShishaPage")}>
                 <CardMedia
                   component="img"
                   sx={styles.cardImageStyle}  // 画像のサイズを指定
