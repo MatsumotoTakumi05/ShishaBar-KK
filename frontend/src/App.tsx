@@ -6,6 +6,7 @@ import MainContent from "./Page/TopPage/MainContent";
 import YearConf from "./Page/YearConf/YearConf";
 import { Fade } from "react-swift-reveal";
 import DetailShisha from "./Page/DetailShisha/DetailShisha";
+import Footer from "./Page/Footer/Footer";
 
 const App = memo(() => {
   // 現在のパスを保持
@@ -39,6 +40,7 @@ const App = memo(() => {
                 </Routes>
               </Box>
             </Fade>
+            <Box sx={{ height: "400px", backgroundColor: "#262626", color: "#fff" }}><Footer /></Box>
           </>
         )}
       </Router>
