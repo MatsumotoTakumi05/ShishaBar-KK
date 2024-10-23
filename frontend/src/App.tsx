@@ -16,6 +16,7 @@ const App = memo(() => {
     setPath(currentPath);
   }, [path]);
 
+  document.title = "KK"
   return (
     <>
       <Router>
