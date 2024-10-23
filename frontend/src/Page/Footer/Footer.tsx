@@ -15,9 +15,7 @@ const Footer = memo(() => {
             <Stack direction="row" spacing={45} sx={{ justifyContent: "center" }} mt={10}>
                 <Box>
                     <CustomTypography displayText={"Information"} tittleFlag fontSize='25px' />
-                    <Menu open>
-                        <MenuItem>a</MenuItem>
-                    </Menu>
+
                 </Box>
                 <Box>
                     <CustomTypography displayText={"Menu"} tittleFlag fontSize='25px' />
