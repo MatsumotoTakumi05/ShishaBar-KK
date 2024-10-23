@@ -15,6 +15,7 @@ const MainContent = memo(() => {
       <AboutShisha />
       <StoreAccess />
       <Menu />
+      
     </>
   )
 })
