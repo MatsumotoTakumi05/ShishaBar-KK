@@ -15,7 +15,7 @@ const DetailShisha = memo(() => {
     return (
         <>
             <Box height={"100%"}>
-                <Box sx={{ height: "80px" }} >
+                <Box sx={{ height: "80px" }} id="detail">
                     <CustomTypography displayText={"What's Shisha"} tittleFlag />
                 </Box>
                 <Box height={"100%"} >
