@@ -44,8 +44,6 @@ const styles = {
 
 const StoreAccess = memo(() => {
 
-  // 各コンポーネントのrefを作成（型を指定）
-  const storeAccessRef = useRef<HTMLDivElement | null>(null);
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); // スマホ向けのブレークポイント
@@ -54,7 +52,7 @@ const StoreAccess = memo(() => {
 
   return (
     <>
-      <Box height="1000px" sx={styles.pageWrapper} ref={storeAccessRef} >
+      <Box height="1000px" sx={styles.pageWrapper}  >
         <Box sx={styles.headerBox} id="access">
           <Typography sx={styles.headerText}>ACCESS／STORE</Typography>
         </Box>
