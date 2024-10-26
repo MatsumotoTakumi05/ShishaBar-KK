@@ -16,11 +16,10 @@ const App = memo(() => {
     setPath(currentPath);
   }, [path]);
 
-  document.title = "KK"
+  document.title = "KK";
   return (
     <>
       <Router>
-
         {/* ローカルの場合のみ,本番の場合は変更するため環境変数を作成する必要あり */}
         {path === "/" ? (
           <>
@@ -41,7 +40,15 @@ const App = memo(() => {
                 </Routes>
               </Box>
             </Fade>
-            <Box sx={{ height: "400px", backgroundColor: "#262626", color: "#fff" }}><Footer /></Box>
+            <Box
+              sx={{
+                height: "400px",
+                backgroundColor: "#262626",
+                color: "#fff",
+              }}
+            >
+              <Footer />
+            </Box>
           </>
         )}
       </Router>

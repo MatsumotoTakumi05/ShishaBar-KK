@@ -1,17 +1,15 @@
-import { Box, Container, Link, Typography } from '@mui/material'
-import React, { memo, useEffect, useRef, useState } from 'react'
-import CustomDiaLog from '../../../Component/modules/DiaLog/CustomDiaLog'
-import CustomLayout from '../../../Component/modules/Layout/CustomLayout'
+import { Box, Container, Link, Typography } from "@mui/material";
+import React, { memo, useEffect, useRef, useState } from "react";
+import CustomDiaLog from "../../../Component/modules/DiaLog/CustomDiaLog";
+import CustomLayout from "../../../Component/modules/Layout/CustomLayout";
 
 interface Info {
-  date: string,
-  text: string,
-  DialogTittleText: string,
-  DialogDetail: any
+  date: string;
+  text: string;
+  DialogTittleText: string;
+  DialogDetail: any;
 }
 const Information = memo(() => {
-
-
   // ダイアログの表示を管理
   const [isOpenDiaLog, setIsOpenDiaLog] = useState(false);
   const [selectedInfo, setSelectedInfo] = useState<Info | null>(null); // 選択された情報を保存
@@ -21,61 +19,90 @@ const Information = memo(() => {
       date: "2024/10/01",
       text: "Instagramのご紹介について",
       DialogTittleText: "お知らせ",
-      DialogDetail: (<>
-        いつもご利用いただきありがとうございます！<br />
-        当店のInstagramアカウントのご紹介です！<br />
-        Instagramではお店のリアルタイムの情報や、キャンペーンのお知らせを行います。
-        ぜひフォローをお願いします！<br />
-        <Link href="https://www.instagram.com/shishabar_kk/" target="_blank" rel="noopener" sx={{ color: "blue" }}>
-          Instagramはこちら
-        </Link>
-      </>)
+      DialogDetail: (
+        <>
+          いつもご利用いただきありがとうございます！
+          <br />
+          当店のInstagramアカウントのご紹介です！
+          <br />
+          Instagramではお店のリアルタイムの情報や、キャンペーンのお知らせを行います。
+          ぜひフォローをお願いします！
+          <br />
+          <Link
+            href="https://www.instagram.com/shishabar_kk/"
+            target="_blank"
+            rel="noopener"
+            sx={{ color: "blue" }}
+          >
+            Instagramはこちら
+          </Link>
+        </>
+      ),
     },
     {
       date: "2024/10/14",
       text: "HPの公開についてお知らせ",
       DialogTittleText: "お知らせ",
-      DialogDetail: (<>いつもご利用いただきありがとうございます！<br />このたび、当店の公式ホームページがオープンしました！<br />ホームページでは、お店の雰囲気やシステム、アクセス情報など、さまざまな内容をお届けしています。これからも、みなさまに楽しんでいただけるよう頑張っていきます。今後ともよろしくお願いいたします！</>)
-    }
-  ]
+      DialogDetail: (
+        <>
+          いつもご利用いただきありがとうございます！
+          <br />
+          このたび、当店の公式ホームページがオープンしました！
+          <br />
+          ホームページでは、お店の雰囲気やシステム、アクセス情報など、さまざまな内容をお届けしています。これからも、みなさまに楽しんでいただけるよう頑張っていきます。今後ともよろしくお願いいたします！
+        </>
+      ),
+    },
+  ];
 
   // ダイアログを閉じる処理
   const onClose = () => {
     setIsOpenDiaLog(false);
     setSelectedInfo(null); // 選択された情報をクリア
-  }
+  };
 
   // リンクをクリックしてダイアログを開く処理
   const onOpen = (info: Info) => {
     setSelectedInfo(info); // クリックされた情報を保存
     setIsOpenDiaLog(true); // ダイアログを表示
-  }
-
+  };
 
   return (
     <CustomLayout tittleText="Information" id="info">
-      <Container sx={{
-        position: "absolute",
-        // top: "12%",
-        zIndex: 15,
-        backgroundColor: "rgb(110, 110, 110, 0.4)",
-        color: "#fff",
-        height: "500px",
-        width: "60%",
-        left: "20%",
-        borderRadius: "2%",
-      }}>
+      <Container
+        sx={{
+          zIndex: 1,
+          backgroundColor: "rgb(110, 110, 110, 0.4)",
+          color: "#fff",
+          height: "500px",
+          width: "60%",
+          left: "20%",
+          borderRadius: "2%",
+          paddingTop: "10px",
+        }}
+      >
         <Container maxWidth="md">
           {Information.map((info: Info) => (
-            <Box sx={{ display: "flex", margin: "50px 0", borderBottom: "dotted 0.5px #fff" }} key={info.text} onClick={() => onOpen(info)}>
+            <Box
+              sx={{
+                display: "flex",
+                margin: "50px 0",
+                borderBottom: "dotted 0.5px #fff",
+              }}
+              key={info.text}
+              onClick={() => onOpen(info)}
+            >
               <Box sx={{ justifyContent: "flex-start" }}>
                 <Typography sx={{ fontSize: "25px" }}>{info.date}</Typography>
               </Box>
               <Box sx={{ marginLeft: "200px" }}>
                 <Link
-                  sx={{ fontSize: "25px", "&:hover": { opacity: "0.8" }, cursor: "pointer" }}
+                  sx={{
+                    fontSize: "25px",
+                    "&:hover": { opacity: "0.8" },
+                    cursor: "pointer",
+                  }}
                   underline="none"
-
                 >
                   {info.text}
                 </Link>
@@ -89,12 +116,13 @@ const Information = memo(() => {
               open={isOpenDiaLog}
               onClose={onClose}
               DialogTittleText={selectedInfo.DialogTittleText}
-              DialogDetail={selectedInfo.DialogDetail} />
+              DialogDetail={selectedInfo.DialogDetail}
+            />
           )}
         </Container>
       </Container>
     </CustomLayout>
-  )
-})
+  );
+});
 
 export default Information;
