@@ -38,45 +38,56 @@ const InstagramLink = memo((props: Props) => {
     }
 
     return (
-        <>
-            <Tooltip title={toolFlag ? "Instagramはこちらから" : undefined}>
-                <Box component="img" src="./social_15707869.png" sx={{
-                    width: "40px", height: "40px", borderRadius: "50%", '&:hover': {
-                        opacity: 0.7,
-                    },
-                }} onClick={handleClick} mt={mt} />
-            </Tooltip>
-            <Menu
-                anchorEl={storeElement}
-                open={open}
-                onClose={handleClose}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                }}
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                sx={{
-                    '& .MuiPaper-root': { // Paperコンポーネントのスタイルを指定
-                        marginRight: '10px', // 左にマージンを追加
-                        borderRadius: '12px', // 角を丸くする
-                        backgroundColor: 'rgba(26, 26, 26, 0.8)', // 背景色を白に設定
-                        color: "#fff"
-                    },
-                }}
-            >
-                <MenuItem onClick={() => openInstagramProfile('shishabar_kk')}>
-                    @shishabar_kk(湯田店)
-                </MenuItem>
-                <MenuItem onClick={() => openInstagramProfile('shishabar_kk_tokuyama')}>
-                    @shishabar_kk_tokuyama(徳山店)
-                </MenuItem>
-            </Menu>
-        </>
-
-    )
+      <>
+        <Tooltip title={toolFlag ? "Instagramはこちらから" : undefined}>
+          <Box
+            component="img"
+            src="./InstagramIcon.png"
+            sx={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "50%",
+              "&:hover": {
+                opacity: 0.7,
+              },
+            }}
+            onClick={handleClick}
+            mt={mt}
+          />
+        </Tooltip>
+        <Menu
+          anchorEl={storeElement}
+          open={open}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          sx={{
+            "& .MuiPaper-root": {
+              // Paperコンポーネントのスタイルを指定
+              marginRight: "10px", // 左にマージンを追加
+              borderRadius: "12px", // 角を丸くする
+              backgroundColor: "rgba(26, 26, 26, 0.8)", // 背景色を白に設定
+              color: "#fff",
+            },
+          }}
+        >
+          <MenuItem onClick={() => openInstagramProfile("shishabar_kk")}>
+            @shishabar_kk(湯田店)
+          </MenuItem>
+          <MenuItem
+            onClick={() => openInstagramProfile("shishabar_kk_tokuyama")}
+          >
+            @shishabar_kk_tokuyama(徳山店)
+          </MenuItem>
+        </Menu>
+      </>
+    );
 })
 
 export default InstagramLink
