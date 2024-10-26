@@ -4,7 +4,7 @@ import CustomTypography from "../../atoms/Typography/CustomTypography";
 
 interface Props {
   tittleText: string; // タイトルテキストの型をstringに変更
-  backgroundBorder?: { [key: string]: string }[]; // 外側のBoxに指定するsxの値
+  backgroundBorder?: { [key: string]: any }[]; // 外側のBoxに指定するsxの値
   headerBorder?: { [key: string]: string }[]; // ヘッダーのBoxに指定するsxの値
   children: React.ReactNode; // childrenの型をReact.ReactNodeに変更
   id?: string;
