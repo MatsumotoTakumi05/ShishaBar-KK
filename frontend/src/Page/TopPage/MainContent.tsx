@@ -12,9 +12,9 @@ const MainContent = memo(() => {
     <>
       <StoreImage />
       <Information />
+      <Menu />
       <AboutShisha />
       <StoreAccess />
-      <Menu />
       
     </>
   )
