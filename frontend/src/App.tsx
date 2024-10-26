@@ -6,6 +6,7 @@ import MainContent from "./Page/TopPage/MainContent";
 import YearConf from "./Page/YearConf/YearConf";
 import { Fade } from "react-swift-reveal";
 import DetailShisha from "./Page/DetailShisha/DetailShisha";
+import MenuContent from "./Page/MenuPage/MenuContent";
 import Footer from "./Page/Footer/Footer";
 
 const App = memo(() => {
@@ -37,6 +38,7 @@ const App = memo(() => {
                 <Routes>
                   <Route path="/KK" element={<MainContent />} />
                   <Route path="/KK/AboutShisha" element={<DetailShisha />} />
+                  <Route path="/KK/ShishaPage" element={<MenuContent />} />
                 </Routes>
               </Box>
             </Fade>
