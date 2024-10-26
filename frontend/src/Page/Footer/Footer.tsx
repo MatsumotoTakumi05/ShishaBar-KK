@@ -2,6 +2,7 @@ import { Box, Link, Stack } from "@mui/material";
 import React, { memo } from "react";
 import CustomTypography from "../../Component/atoms/Typography/CustomTypography";
 import InstagramLink from "../../Component/modules/InstagramLink/InstagramLink";
+import { useNavigate } from "react-router-dom";
 
 const Footer = memo(() => {
   const defaultPath = "/KK";
@@ -18,6 +19,7 @@ const Footer = memo(() => {
     }
   };
 
+  const navigate = useNavigate();
   return (
     <>
       <Box
@@ -28,6 +30,7 @@ const Footer = memo(() => {
           alignItems: "center",
         }}
         pt={5}
+        onClick={() => navigate("/KK")}
       >
         <Box mr={1}>
           <CustomTypography
