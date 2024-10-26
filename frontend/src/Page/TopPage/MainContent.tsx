@@ -7,17 +7,25 @@ import StoreAccess from "./StoreAccess/StoreAccess";
 import Menu from "./Menu/Menu ";
 
 const MainContent = memo(() => {
-
   return (
     <>
       <StoreImage />
-      <Information />
-      <AboutShisha />
-      <StoreAccess />
-      <Menu />
+      <Box
+        height={"700px"}
+        sx={{
+          overflowY: "auto",
+          backgroundImage: "url(./Normal_BgImage.jpeg)",
+        }}
+      >
+        <Box height={"100%"}>
+          <Information />
+          <Menu />
+          <AboutShisha />
+          <StoreAccess />
+        </Box>
+      </Box>
     </>
-  )
-})
-
+  );
+});
 
 export default MainContent;
