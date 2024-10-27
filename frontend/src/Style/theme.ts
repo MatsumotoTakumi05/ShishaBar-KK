@@ -1,20 +1,24 @@
-import { createTheme } from '@mui/material/styles';
-
+import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
-    components: {
-        MuiTextField: {
-            defaultProps: {
-                variant: 'outlined',
-            },
-        },
-    }, breakpoints: {
-        values: {
-            xs: 450,
-            sm: 600,
-            md: 900,
-            lg: 1200,
-            xl: 1536,
-        }
-    }
+  components: {
+    MuiTextField: {
+      defaultProps: {
+        variant: "outlined",
+      },
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 450,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+  typography: {
+    fontFamily: ["Shippori Mincho B1"].join(","),
+    fontSize: 18,
+  },
 });

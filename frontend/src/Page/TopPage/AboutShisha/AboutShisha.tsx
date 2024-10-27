@@ -31,11 +31,19 @@ const AboutShisha = memo(() => {
           tittleText="What's Shisha"
           backgroundBorder={[customLayout]}
         >
-          <Container maxWidth="md" sx={{ display: "flex", width: "100%" }}>
-            <Box sx={{ width: "50%", padding: "30px" }}>
-              <Typography sx={{ fontSize: "24px" }}>
+          <Container maxWidth="lg" sx={{ display: "flex", width: "100%" }}>
+            <Box sx={{ width: "50%", paddingLeft: "80px" }}>
+              <Typography
+                sx={{
+                  fontSize: "19px",
+                  fontFamily: "Shippori Mincho B1",
+                  lineHeight: "45px",
+                }}
+              >
                 シーシャは、水タバコの一種で、香り豊かなフレーバーの煙をゆっくりと吸い込む嗜好品です。
+                <br />
                 フルーツやミントなどのフレーバー付きタバコ葉を炭で加熱し、水を通して吸うため、煙がまろやかになるのが特徴です。
+                <br />
                 数多くのフレーバーの中からお気に入りを見つけ、ぜひリラックスしたひと時をお過ごしください。
               </Typography>
               <Button

@@ -21,12 +21,12 @@ const Information = memo(() => {
       DialogTittleText: "お知らせ",
       DialogDetail: (
         <>
-          いつもご利用いただきありがとうございます！
+          いつもご利用いただきありがとうございます。
           <br />
-          当店のInstagramアカウントのご紹介です！
+          当店のInstagramアカウントのご紹介です。
           <br />
           Instagramではお店のリアルタイムの情報や、キャンペーンのお知らせを行います。
-          ぜひフォローをお願いします！
+          ぜひフォローをお願いします。
           <br />
           <Link
             href="https://www.instagram.com/shishabar_kk/"
@@ -45,11 +45,11 @@ const Information = memo(() => {
       DialogTittleText: "お知らせ",
       DialogDetail: (
         <>
-          いつもご利用いただきありがとうございます！
+          いつもご利用いただきありがとうございます。
           <br />
-          このたび、当店の公式ホームページがオープンしました！
+          このたび、当店の公式ホームページがオープンしました。
           <br />
-          ホームページでは、お店の雰囲気やシステム、アクセス情報など、さまざまな内容をお届けしています。これからも、みなさまに楽しんでいただけるよう頑張っていきます。今後ともよろしくお願いいたします！
+          ホームページでは、お店の雰囲気やシステム、アクセス情報など、さまざまな内容をお届けしています。これからも、みなさまに楽しんでいただけるよう頑張っていきます。今後ともよろしくお願いいたします。
         </>
       ),
     },
@@ -88,19 +88,21 @@ const Information = memo(() => {
                 display: "flex",
                 margin: "50px 0",
                 borderBottom: "dotted 0.5px #fff",
+                fontFamily: "Shippori Mincho B1",
               }}
               key={info.text}
               onClick={() => onOpen(info)}
             >
               <Box sx={{ justifyContent: "flex-start" }}>
-                <Typography sx={{ fontSize: "25px" }}>{info.date}</Typography>
+                <Typography>{info.date}</Typography>
               </Box>
               <Box sx={{ marginLeft: "200px" }}>
                 <Link
                   sx={{
-                    fontSize: "25px",
                     "&:hover": { opacity: "0.8" },
                     cursor: "pointer",
+                    color: "#fff",
+                    fontSize: "20px",
                   }}
                   underline="none"
                 >

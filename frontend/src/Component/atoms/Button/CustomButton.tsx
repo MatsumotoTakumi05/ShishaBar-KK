@@ -15,7 +15,7 @@ const CustomButton = memo((props: Props) => {
     const xs = theme.breakpoints.values.xs
 
     const defaultSize = {
-        width: xs ? "80px" : "100px",
+        width: xs ? "90px" : "100px",
         color: "#262626"
     }
     return (

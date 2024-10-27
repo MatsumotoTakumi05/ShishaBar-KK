@@ -63,17 +63,29 @@ const Footer = memo(() => {
             fontSize="25px"
           />
           <Box sx={{ mt: 2 }}>
-            <Link color="#fff" href={linkPage("#info")}>
+            <Link
+              sx={{ fontFamily: "Shippori Mincho B1" }}
+              color="#fff"
+              href={linkPage("#info")}
+            >
               Information
             </Link>
           </Box>
           <Box sx={{ mt: 2 }}>
-            <Link color="#fff" href={linkPage("#about")}>
+            <Link
+              sx={{ fontFamily: "Shippori Mincho B1" }}
+              color="#fff"
+              href={linkPage("#about")}
+            >
               About
             </Link>
           </Box>
           <Box sx={{ mt: 2 }}>
-            <Link color="#fff" href={linkPage("/AboutShisha#detail")}>
+            <Link
+              sx={{ fontFamily: "Shippori Mincho B1" }}
+              color="#fff"
+              href={linkPage("/AboutShisha#detail")}
+            >
               Detail
             </Link>
           </Box>
@@ -81,17 +93,29 @@ const Footer = memo(() => {
         <Box>
           <CustomTypography displayText={"Menu"} tittleFlag fontSize="25px" />
           <Box sx={{ mt: 2 }}>
-            <Link color="#fff" href={linkPage("#shisha")}>
+            <Link
+              sx={{ fontFamily: "Shippori Mincho B1" }}
+              color="#fff"
+              href={linkPage("#shisha")}
+            >
               Shisha Menu
             </Link>
           </Box>
           <Box sx={{ mt: 2 }}>
-            <Link color="#fff" href={linkPage("#drink")}>
+            <Link
+              sx={{ fontFamily: "Shippori Mincho B1" }}
+              color="#fff"
+              href={linkPage("#drink")}
+            >
               Drink Menu
             </Link>
           </Box>
           <Box sx={{ mt: 2 }}>
-            <Link color="#fff" href={linkPage("#food")}>
+            <Link
+              sx={{ fontFamily: "Shippori Mincho B1" }}
+              color="#fff"
+              href={linkPage("#food")}
+            >
               Food Menu
             </Link>
           </Box>
@@ -103,12 +127,20 @@ const Footer = memo(() => {
             fontSize="25px"
           />
           <Box sx={{ mt: 2 }}>
-            <Link color="#fff" href={linkPage("#access")}>
+            <Link
+              sx={{ fontFamily: "Shippori Mincho B1" }}
+              color="#fff"
+              href={linkPage("#access")}
+            >
               Store/Access
             </Link>
           </Box>
           <Box sx={{ mt: 2 }}>
-            <Link color="#fff" href={linkPage("#history")}>
+            <Link
+              sx={{ fontFamily: "Shippori Mincho B1" }}
+              color="#fff"
+              href={linkPage("#history")}
+            >
               Store History
             </Link>
           </Box>

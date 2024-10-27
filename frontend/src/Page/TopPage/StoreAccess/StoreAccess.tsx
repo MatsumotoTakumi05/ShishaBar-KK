@@ -31,13 +31,16 @@ const styles = {
     fontWeight: "bold",
     marginBottom: "16px",
     fontSize: { xs: "24px", sm: "28px", md: "32px" },
+    fontFamily: "Shippori Mincho B1",
   },
   storeDetailText: {
     fontWeight: "bold",
     fontSize: { xs: "18px", sm: "22px", md: "26px" },
+    fontFamily: "Shippori Mincho B1",
   },
   storeContentText: {
     fontSize: { xs: "16px", sm: "20px", md: "24px" },
+    fontFamily: "Shippori Mincho B1",
   },
 };
 
