@@ -6,7 +6,6 @@ import { useTheme } from '@mui/material/styles';
 import CustomLayout from '../../../Component/modules/Layout/CustomLayout';
 import { useNavigate } from 'react-router-dom';
 import zIndex from "@mui/material/styles/zIndex";
-import CustomLayout from "../../../Component/modules/Layout/CustomLayout";
 
 
 // 共通のスタイル変数を定義
@@ -111,12 +110,12 @@ const Menu = memo(() => {
 
             {/* Drink Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
-              <CardActionArea onClick={() => handleCardClick("#")}>
+              <CardActionArea onClick={() => handleCardClick("./ShishaPage")}>
                 <CardMedia
                   component="img"
                   sx={styles.cardImageStyle} // 画像のサイズを指定
                   image="/Drink.jpeg"
-                  alt="#"
+                  alt="./ShishaPage"
                 />
                 <CardContent sx={styles.menuCard}>
                   <Typography
