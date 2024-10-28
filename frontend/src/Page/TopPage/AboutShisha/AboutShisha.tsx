@@ -20,11 +20,11 @@ const AboutShisha = memo(() => {
   };
   return (
     <>
-      <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+      <Box sx={{ position: "relative", width: "100%" }}>
         <Box
           component="img"
           src="./AboutShisha.jpg"
-          sx={{ width: "100%", height: "100%", opacity: "0.5" }}
+          sx={{ width: "100%", opacity: "0.5" }}
         />
         <CustomLayout
           id="about"
