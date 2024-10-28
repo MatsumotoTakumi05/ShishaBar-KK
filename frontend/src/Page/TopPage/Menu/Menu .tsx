@@ -26,6 +26,7 @@ const styles = {
     borderRadius: "8px",
     margin: "0 auto",
     textAlign: "center",
+    height: { xs: "30%", sm: "30%", md: "30%" },
   },
   cardTitleStyle: {
     fontFamily: "Academy Engraved LET",
@@ -46,9 +47,9 @@ const styles = {
   },
   cardImageStyle: {
     height: {
-      xs: 250, // スマホ向けの高さ
-      sm: 300, // タブレット向けの高さ
-      md: 350, // PC向けの高さ
+      xs: 200, // スマホ向けの高さ
+      sm: 200, // タブレット向けの高さ
+      md: 200, // PC向けの高さ
     },
     width: {
       xs: "100%", // スマホ向けの幅（カードに合わせる）

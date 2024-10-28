@@ -47,9 +47,10 @@ const AboutShisha = memo(() => {
                 数多くのフレーバーの中からお気に入りを見つけ、ぜひリラックスしたひと時をお過ごしください。
               </Typography>
               <Button
-                variant="outlined"
-                sx={{ mt: "30px" }}
+                variant="text"
+                sx={{ mt: "30px", "&:hover": { opacity: "0.8" } }}
                 onClick={detailPageNaviOnClick}
+                color="inherit"
               >
                 {" "}
                 Read More→

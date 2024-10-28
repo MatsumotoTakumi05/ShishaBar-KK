@@ -30,16 +30,16 @@ const styles = {
   storeTitle: {
     fontWeight: "bold",
     marginBottom: "16px",
-    fontSize: { xs: "24px", sm: "28px", md: "32px" },
+    fontSize: { xs: "20px", sm: "24px", md: "28px" },
     fontFamily: "Shippori Mincho B1",
   },
   storeDetailText: {
     fontWeight: "bold",
-    fontSize: { xs: "18px", sm: "22px", md: "26px" },
+    fontSize: { xs: "14px", sm: "16px", md: "19px" },
     fontFamily: "Shippori Mincho B1",
   },
   storeContentText: {
-    fontSize: { xs: "16px", sm: "20px", md: "24px" },
+    fontSize: { xs: "14px", sm: "16px", md: "19px" },
     fontFamily: "Shippori Mincho B1",
   },
 };
@@ -82,6 +82,7 @@ const StoreAccess = memo(() => {
                     href="https://maps.app.goo.gl/5KeYMFDBV4qLj6Dy5"
                     target="_blank"
                     rel="noopener"
+                    color={"#fff"}
                   >
                     〒753−0056 <br />
                     山口県山口市湯田温泉１丁目７−２２
@@ -91,7 +92,9 @@ const StoreAccess = memo(() => {
               <Box>
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
                 <Typography sx={styles.storeContentText}>
-                  <Link href="tel:08056100408">080-5610-0408</Link>
+                  <Link href="tel:08056100408" color={"#fff"}>
+                    080-5610-0408
+                  </Link>
                 </Typography>
               </Box>
               <Box>
@@ -135,6 +138,7 @@ const StoreAccess = memo(() => {
                     href="https://maps.app.goo.gl/yc39m7XBcnN9yoco7"
                     target="_blank"
                     rel="noopener"
+                    color={"#fff"}
                   >
                     〒745−0014 <br />
                     山口県周南市飯島町２丁目１６　セウズール２−１
@@ -144,7 +148,9 @@ const StoreAccess = memo(() => {
               <Box>
                 <Typography sx={styles.storeDetailText}>TEL:</Typography>
                 <Typography sx={styles.storeContentText}>
-                  <Link href="tel:080-8243-7202">080-8243-7202</Link>
+                  <Link href="tel:080-8243-7202" color={"#fff"}>
+                    080-8243-7202
+                  </Link>
                 </Typography>
               </Box>
               <Box>
