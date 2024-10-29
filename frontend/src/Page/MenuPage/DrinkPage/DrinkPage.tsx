@@ -50,12 +50,12 @@ const styles = {
     color: '#ffffff',
   },
   cocktailContainer: {
+    width: '500px',
     display: 'grid',
     gridTemplateColumns: '240px 240px',
     gap: '10px',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '500px',
   },
   price: {
     fontSize: { xs: '14px', sm: '18px', md: '22px' },
@@ -134,7 +134,7 @@ const DrinkPage = memo(() => {
       <Box sx={styles.categoryContainer}>
         {categories.slice(0, 5).map((category) =>
           category.isCocktail ? (
-            <Box key={category.title} sx={{ ...styles.categoryBox, width: '100%' }}>
+            <Box key={category.title} sx={{ ...styles.categoryBox, width: '500px' }}>
               <Typography sx={{ ...styles.categoryTitle, textAlign: 'center' }}>
                 {category.title}
               </Typography>
@@ -165,7 +165,7 @@ const DrinkPage = memo(() => {
 
         {categories.slice(5).map((category) =>
           category.isCocktail ? (
-            <Box key={category.title} sx={{ ...styles.categoryBox, width: '100%' }}>
+            <Box key={category.title} sx={{ ...styles.categoryBox, width: '500px' }}>
               <Typography sx={{ ...styles.categoryTitle, textAlign: 'center' }}>
                 {category.title}
               </Typography>
