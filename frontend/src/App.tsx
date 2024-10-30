@@ -10,6 +10,7 @@ import MenuContent from "./Page/MenuPage/MenuContent";
 import Footer from "./Page/Footer/Footer";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./Style/theme";
+import SnackPage from "./Page/MenuPage/SnackPage/SnackPage";
 
 const App = memo(() => {
   // 現在のパスを保持
@@ -42,6 +43,7 @@ const App = memo(() => {
                     <Route path="/KK" element={<MainContent />} />
                     <Route path="/KK/AboutShisha" element={<DetailShisha />} />
                     <Route path="/KK/ShishaPage" element={<MenuContent />} />
+                    <Route path="/KK/SnackPage" element={<SnackPage />} />
                   </Routes>
                 </Box>
               </Fade>
