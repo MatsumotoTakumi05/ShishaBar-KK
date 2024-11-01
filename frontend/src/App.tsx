@@ -12,6 +12,7 @@ import { ThemeProvider } from "@mui/material";
 import { theme } from "./Style/theme";
 import SnackPage from "./Page/MenuPage/SnackPage/SnackPage";
 
+
 const App = memo(() => {
   // 現在のパスを保持
   const [path, setPath] = useState("/");
