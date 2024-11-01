@@ -9,7 +9,6 @@ import Menu from "./Menu/Menu ";
 const MainContent = memo(() => {
   return (
     <>
-      <StoreImage />
       <Box
         height={"700px"}
         sx={{
@@ -18,6 +17,7 @@ const MainContent = memo(() => {
         }}
       >
         <Box height={"100%"}>
+          <StoreImage />
           <Information />
           <Menu />
           <AboutShisha />

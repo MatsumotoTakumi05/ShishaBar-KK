@@ -13,7 +13,7 @@ const SnackPage = memo(() => {
     padding: theme.spacing(1),
     textAlign: "center",
     border: "solid 1px #fff",
-    color: theme.palette.text.secondary,
+    color: "#fff",
     borderRadius: 0,
     ...theme.applyStyles("dark", {
       backgroundColor: "#1A2027",
@@ -26,42 +26,52 @@ const SnackPage = memo(() => {
         <Box>
           <Container>
             <Box sx={{ flexGrow: 1 }}>
-              <Grid container >
-                <Grid size={4}>
-                  <Item>size=4</Item>
+              <Grid container>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>フライドポテト</Item>
                 </Grid>
-                <Grid size={4}>
-                  <Item>size=4</Item>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>¥600</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=2</Item>
+              </Grid>
+              <Grid container>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>チキンナゲット</Item>
                 </Grid>
-                <Grid size={1}>
-                  <Item>size=8</Item>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>¥600</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=4</Item>
+              </Grid>
+              <Grid container>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>ナッツ</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=8</Item>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>¥500</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=4</Item>
+              </Grid>
+              <Grid container>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>ポテトチップス</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=8</Item>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>¥500</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=4</Item>
+              </Grid>
+              <Grid container>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>チョコレート盛り合わせ</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=8</Item>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>¥500</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=4</Item>
+              </Grid>
+              <Grid container>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>カップ麺</Item>
                 </Grid>
-                <Grid size={2}>
-                  <Item>size=8</Item>
+                <Grid size={5} rowSpacing={2}>
+                  <Item>¥500</Item>
                 </Grid>
               </Grid>
             </Box>
