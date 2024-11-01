@@ -9,6 +9,7 @@ import DetailShisha from "./Page/DetailShisha/DetailShisha";
 import MenuContent from "./Page/MenuPage/MenuContent";
 import Footer from "./Page/Footer/Footer";
 
+
 const App = memo(() => {
   // 現在のパスを保持
   const [path, setPath] = useState("/");
