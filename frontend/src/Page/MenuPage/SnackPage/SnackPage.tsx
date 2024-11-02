@@ -1,83 +1,240 @@
-import React, { memo } from "react";
-import CustomLayout from "../../../Component/modules/Layout/CustomLayout";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import { EffectCoverflow, Pagination } from "swiper/modules";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
+import { memo } from "react";
+import Menu from "../../TopPage/Menu/Menu ";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Container,
+  Stack,
+  Typography,
+} from "@mui/material";
+import Footer from "../../Footer/Footer";
+import CustomLayout from "../../../Component/modules/Layout/CustomLayout";
 
 const SnackPage = memo(() => {
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: "#262626",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    border: "solid 1px #fff",
-    color: "#fff",
-    borderRadius: 0,
-    ...theme.applyStyles("dark", {
-      backgroundColor: "#1A2027",
-    }),
-  }));
-
   return (
     <>
-      <CustomLayout tittleText="Snack Menu">
-        <Box>
-          <Container>
-            <Box sx={{ flexGrow: 1 }}>
-              <Grid container>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>フライドポテト</Item>
-                </Grid>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>¥600</Item>
-                </Grid>
-              </Grid>
-              <Grid container>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>チキンナゲット</Item>
-                </Grid>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>¥600</Item>
-                </Grid>
-              </Grid>
-              <Grid container>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>ナッツ</Item>
-                </Grid>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>¥500</Item>
-                </Grid>
-              </Grid>
-              <Grid container>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>ポテトチップス</Item>
-                </Grid>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>¥500</Item>
-                </Grid>
-              </Grid>
-              <Grid container>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>チョコレート盛り合わせ</Item>
-                </Grid>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>¥500</Item>
-                </Grid>
-              </Grid>
-              <Grid container>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>カップ麺</Item>
-                </Grid>
-                <Grid size={5} rowSpacing={2}>
-                  <Item>¥500</Item>
-                </Grid>
-              </Grid>
-            </Box>
-          </Container>
+      <Box
+        height={"700px"}
+        sx={{
+          overflowY: "auto",
+          backgroundImage: "url(../Normal_BgImage.jpeg)",
+        }}
+      >
+        <Box height={"100%"}>
+          <CustomLayout tittleText="Food Menu">
+            {/* <Container> */}
+            <Stack direction="row">
+              <Swiper
+                effect={"coverflow"}
+                grabCursor
+                centeredSlides={true}
+                slidesPerView={3}
+                coverflowEffect={{
+                  rotate: 50,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                }}
+                pagination={true}
+                modules={[EffectCoverflow, Pagination]}
+                className="mySwiper"
+              >
+                <SwiperSlide>
+                  <Card
+                    sx={{
+                      borderRadius: "5%",
+                      width: "300px",
+                      margin: 7,
+                      height: "300px",
+                      border: "solid 1px #262626",
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image="/Snack.jpeg"
+                        alt="./ShishaPage"
+                        sx={{ height: "200px" }}
+                      />
+                      <CardContent
+                        sx={{
+                          height: "100px",
+                          backgroundColor: "#d3d3d3",
+                          color: "#262626",
+                        }}
+                      >
+                        <Typography>ポテトフライ</Typography>
+                        <Typography>¥ 600</Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Card
+                    sx={{
+                      borderRadius: "5%",
+                      width: "300px",
+                      margin: 7,
+                      height: "300px",
+                      border: "solid 1px #262626",
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image="/Snack.jpeg"
+                        alt="./ShishaPage"
+                        sx={{ height: "200px" }}
+                      />
+                      <CardContent
+                        sx={{
+                          height: "100px",
+                          backgroundColor: "#d3d3d3",
+                          color: "#262626",
+                        }}
+                      >
+                        <Typography>チキンナゲット</Typography>
+                        <Typography>¥ 600</Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Card
+                    sx={{
+                      borderRadius: "5%",
+                      width: "300px",
+                      margin: 7,
+                      height: "300px",
+                      border: "solid 1px #262626",
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image="/Snack.jpeg"
+                        alt="./ShishaPage"
+                        sx={{ height: "200px" }}
+                      />
+                      <CardContent
+                        sx={{
+                          height: "100px",
+                          backgroundColor: "#d3d3d3",
+                          color: "#262626",
+                        }}
+                      >
+                        <Typography>ナッツ</Typography>
+                        <Typography>¥ 500</Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Card
+                    sx={{
+                      borderRadius: "5%",
+                      width: "300px",
+                      margin: 7,
+                      height: "300px",
+                      border: "solid 1px #262626",
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image="/Snack.jpeg"
+                        alt="./ShishaPage"
+                        sx={{ height: "200px" }}
+                      />
+                      <CardContent
+                        sx={{
+                          height: "100px",
+                          backgroundColor: "#d3d3d3",
+                          color: "#262626",
+                        }}
+                      >
+                        <Typography>ポテトチップス</Typography>
+                        <Typography>¥ 500</Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Card
+                    sx={{
+                      borderRadius: "5%",
+                      width: "300px",
+                      margin: 7,
+                      height: "300px",
+                      border: "solid 1px #262626",
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image="/Snack.jpeg"
+                        alt="./ShishaPage"
+                        sx={{ height: "200px" }}
+                      />
+                      <CardContent
+                        sx={{
+                          height: "100px",
+                          backgroundColor: "#d3d3d3",
+                          color: "#262626",
+                        }}
+                      >
+                        <Typography>チョコ盛合わせ</Typography>
+                        <Typography>¥ 500</Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Card
+                    sx={{
+                      borderRadius: "5%",
+                      width: "300px",
+                      margin: 7,
+                      height: "300px",
+                      border: "solid 1px #262626",
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image="/Snack.jpeg"
+                        alt="./ShishaPage"
+                        sx={{ height: "200px" }}
+                      />
+                      <CardContent
+                        sx={{
+                          height: "100px",
+                          backgroundColor: "#d3d3d3",
+                          color: "#262626",
+                        }}
+                      >
+                        <Typography>カップ麺各種</Typography>
+                        <Typography>¥ 500</Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </SwiperSlide>
+              </Swiper>
+            </Stack>
+            {/* </Container> */}
+          </CustomLayout>
         </Box>
-      </CustomLayout>
+      </Box>
     </>
   );
 });

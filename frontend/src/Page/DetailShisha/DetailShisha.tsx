@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Height } from "@mui/icons-material";
 import CustomTypography from "../../Component/atoms/Typography/CustomTypography";
+import Footer from "../Footer/Footer";
 
 const DetailShisha = memo(() => {
   // ページがマウントされた際にトップにスクロール
@@ -145,6 +146,15 @@ const DetailShisha = memo(() => {
                 </Typography>
               </Box>
             </Container>
+            <Box
+              sx={{
+                height: "400px",
+                backgroundColor: "#262626",
+                color: "#fff",
+              }}
+            >
+              <Footer />
+            </Box>
           </Box>
         </Box>
       </Box>

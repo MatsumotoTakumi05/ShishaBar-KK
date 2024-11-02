@@ -5,12 +5,13 @@ import Information from "./Information/Information";
 import AboutShisha from "./AboutShisha/AboutShisha";
 import StoreAccess from "./StoreAccess/StoreAccess";
 import Menu from "./Menu/Menu ";
+import Footer from "../Footer/Footer";
 
 const MainContent = memo(() => {
   return (
     <>
       <Box
-        height={"700px"}
+        height={"600px"}
         sx={{
           overflowY: "auto",
           backgroundImage: "url(./Normal_BgImage.jpeg)",
