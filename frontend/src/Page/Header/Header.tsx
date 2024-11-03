@@ -31,7 +31,7 @@ const Header = memo(() => {
               },
             }}>
               <img
-                src="./store_icon.jpeg"
+                src="/store_icon.jpeg"
                 style={{ height: "80px", width: "110px", cursor: "pointer", }}
                 onClick={StartPathOnClick}
               />

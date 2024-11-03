@@ -42,7 +42,7 @@ const InstagramLink = memo((props: Props) => {
         <Tooltip title={toolFlag ? "Instagramはこちらから" : undefined}>
           <Box
             component="img"
-            src="./InstagramIcon.png"
+            src="/InstagramIcon.png"
             sx={{
               width: "40px",
               height: "40px",

@@ -11,6 +11,7 @@ import Footer from "./Page/Footer/Footer";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./Style/theme";
 import SnackPage from "./Page/MenuPage/SnackPage/SnackPage";
+import DrinkPage from "./Page/MenuPage/DrinkPage/DrinkPage";
 
 const App = memo(() => {
   // 現在のパスを保持
@@ -43,6 +44,7 @@ const App = memo(() => {
                     <Route path="/KK" element={<MainContent />} />
                     <Route path="/KK/AboutShisha" element={<DetailShisha />} />
                     <Route path="/KK/ShishaPage" element={<MenuContent />} />
+                    <Route path="/KK/DrinkPage" element={<DrinkPage />} />
                     <Route path="/KK/SnackPage" element={<SnackPage />} />
                   </Routes>
                 </Box>
