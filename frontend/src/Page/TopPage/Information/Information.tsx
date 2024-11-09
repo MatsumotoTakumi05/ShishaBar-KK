@@ -2,6 +2,7 @@ import { Box, Container, Link, Typography } from "@mui/material";
 import React, { memo, useEffect, useRef, useState } from "react";
 import CustomDiaLog from "../../../Component/modules/DiaLog/CustomDiaLog";
 import CustomLayout from "../../../Component/modules/Layout/CustomLayout";
+import { Height } from "@mui/icons-material";
 
 interface Info {
   date: string;
@@ -15,6 +16,20 @@ const Information = memo(() => {
   const [selectedInfo, setSelectedInfo] = useState<Info | null>(null); // 選択された情報を保存
 
   const Information: Info[] = [
+    {
+      date: "2024/10/14",
+      text: "HPの公開についてお知らせ",
+      DialogTittleText: "お知らせ",
+      DialogDetail: (
+        <>
+          いつもご利用いただきありがとうございます。
+          <br />
+          このたび、当店の公式ホームページがオープンしました。
+          <br />
+          ホームページでは、お店の雰囲気やシステム、アクセス情報など、さまざまな内容をお届けしています。これからも、みなさまに楽しんでいただけるよう頑張っていきます。今後ともよろしくお願いいたします。
+        </>
+      ),
+    },
     {
       date: "2024/10/01",
       text: "Instagramのご紹介について",
@@ -39,20 +54,6 @@ const Information = memo(() => {
         </>
       ),
     },
-    {
-      date: "2024/10/14",
-      text: "HPの公開についてお知らせ",
-      DialogTittleText: "お知らせ",
-      DialogDetail: (
-        <>
-          いつもご利用いただきありがとうございます。
-          <br />
-          このたび、当店の公式ホームページがオープンしました。
-          <br />
-          ホームページでは、お店の雰囲気やシステム、アクセス情報など、さまざまな内容をお届けしています。これからも、みなさまに楽しんでいただけるよう頑張っていきます。今後ともよろしくお願いいたします。
-        </>
-      ),
-    },
   ];
 
   // ダイアログを閉じる処理
@@ -68,13 +69,19 @@ const Information = memo(() => {
   };
 
   return (
-    <CustomLayout tittleText="Information" id="info">
+    <CustomLayout
+      backgroundBorder={[{ height: "450px" }]}
+      tittleText="Information"
+      id="info"
+    >
       <Container
         sx={{
           zIndex: 1,
           backgroundColor: "rgb(110, 110, 110, 0.4)",
           color: "#fff",
-          height: "500px",
+          maxHeight: "300px",
+          minHeight: "300px",
+          overflowY: "scroll",
           width: "60%",
           left: "20%",
           borderRadius: "2%",

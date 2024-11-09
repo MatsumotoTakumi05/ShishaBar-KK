@@ -28,9 +28,22 @@ interface Props {
   cardList: cardList[];
   slidesPerView?: number;
   isAutoplay?: boolean;
+  disableOnInteraction?: boolean;
+  fontSize?: string;
 }
 const CardSwiper = memo((props: Props) => {
-  const { cardList, slidesPerView, isAutoplay = true } = props;
+  const {
+    cardList,
+    slidesPerView,
+    isAutoplay = true,
+    disableOnInteraction = true,
+    fontSize,
+  } = props;
+
+  const handleSlideChange = (swiper: any) => {
+    const currentIndex = swiper.activeIndex;
+    console.log("現在のスライドインデックス:", currentIndex);
+  };
   return (
     <>
       <Stack direction="row">
@@ -47,10 +60,13 @@ const CardSwiper = memo((props: Props) => {
             slideShadows: true,
           }}
           autoplay={
-            isAutoplay ? { delay: 2000, disableOnInteraction: true } : false
+            isAutoplay
+              ? { delay: 2000, disableOnInteraction: disableOnInteraction }
+              : false
           } // isAutoplayがtrueの場合のみautoplayを設定
           pagination={true}
           modules={[Autoplay, EffectCoverflow, Pagination]}
+          onSlideChange={handleSlideChange}
         >
           {cardList.map((card, index) => (
             <SwiperSlide key={index}>
@@ -82,7 +98,10 @@ const CardSwiper = memo((props: Props) => {
                   >
                     <Typography>{card["textTittle"]}</Typography>
                     <Typography
-                      sx={{ textAlign: "right" }}
+                      sx={{
+                        textAlign: "right",
+                        fontSize: fontSize!=undefined ? fontSize : "20px",
+                      }}
                       component="div"
                       dangerouslySetInnerHTML={{
                         __html: card["textContent"] || "",

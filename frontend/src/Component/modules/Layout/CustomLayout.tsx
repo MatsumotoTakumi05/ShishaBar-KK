@@ -34,7 +34,7 @@ const CustomLayout = memo(
 
     // headerBorder が配列なので、オブジェクトとしてマージ
     const headerBorderStyle = {
-      padding: "80px 60px",
+      padding: "60px 60px",
       ...(headerBorder ? Object.assign({}, ...headerBorder) : {}), // 配列をオブジェクトにマージ
     };
 

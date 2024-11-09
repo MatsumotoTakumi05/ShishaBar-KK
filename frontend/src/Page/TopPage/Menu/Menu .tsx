@@ -13,6 +13,8 @@ import { useTheme } from "@mui/material/styles";
 import CustomLayout from "../../../Component/modules/Layout/CustomLayout";
 import { useNavigate } from "react-router-dom";
 import zIndex from "@mui/material/styles/zIndex";
+import DrinkPage from "../../MenuPage/DrinkPage/DrinkPage";
+import ShishaPage from "../../MenuPage/ShishaPage/ShishaPage";
 
 // 共通のスタイル変数を定義
 const styles = {
@@ -64,8 +66,8 @@ const Menu = memo(() => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // スマホ向けのブレークポイント
 
   const navigate = useNavigate();
-  const handleCardClick = (url: string) => {
-    navigate(url);
+  const handleCardClick = (id: number) => {
+    navigate(`./MenuPage/${id}`);
   };
 
   return (
@@ -88,7 +90,7 @@ const Menu = memo(() => {
           >
             {/* Shisha Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
-              <CardActionArea onClick={() => handleCardClick("./ShishaPage")}>
+              <CardActionArea onClick={() => handleCardClick(1)}>
                 <CardMedia
                   component="img"
                   sx={styles.cardImageStyle} // 画像のサイズを指定
@@ -117,7 +119,7 @@ const Menu = memo(() => {
 
             {/* Drink Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
-              <CardActionArea onClick={() => handleCardClick("./DrinkPage")}>
+              <CardActionArea onClick={() => handleCardClick(2)}>
                 <CardMedia
                   component="img"
                   sx={styles.cardImageStyle} // 画像のサイズを指定
@@ -146,7 +148,7 @@ const Menu = memo(() => {
 
             {/* Snack Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
-              <CardActionArea onClick={() => handleCardClick("./SnackPage")}>
+              <CardActionArea onClick={() => handleCardClick(3)}>
                 <CardMedia
                   component="img"
                   sx={styles.cardImageStyle} // 画像のサイズを指定

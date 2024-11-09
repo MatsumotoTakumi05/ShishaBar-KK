@@ -59,7 +59,7 @@ const SnackPage = memo(() => {
         height={"700px"}
         sx={{
           overflowY: "auto",
-          backgroundImage: "url(../Normal_BgImage.jpeg)",
+          backgroundImage: "url(/Normal_BgImage.jpeg)",
         }}
       >
         <Box height={"100%"}>

@@ -6,12 +6,13 @@ import MainContent from "./Page/TopPage/MainContent";
 import YearConf from "./Page/YearConf/YearConf";
 import { Fade } from "react-swift-reveal";
 import DetailShisha from "./Page/DetailShisha/DetailShisha";
-import MenuContent from "./Page/MenuPage/MenuContent";
 import Footer from "./Page/Footer/Footer";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./Style/theme";
 import SnackPage from "./Page/MenuPage/SnackPage/SnackPage";
 import DrinkPage from "./Page/MenuPage/DrinkPage/DrinkPage";
+import ShishaPage from "./Page/MenuPage/ShishaPage/ShishaPage";
+import MenuPage from "./Page/MenuPage/MenuPage";
 
 const App = memo(() => {
   // 現在のパスを保持
@@ -43,9 +44,7 @@ const App = memo(() => {
                   <Routes>
                     <Route path="/KK" element={<MainContent />} />
                     <Route path="/KK/AboutShisha" element={<DetailShisha />} />
-                    <Route path="/KK/ShishaPage" element={<MenuContent />} />
-                    <Route path="/KK/DrinkPage" element={<DrinkPage />} />
-                    <Route path="/KK/SnackPage" element={<SnackPage />} />
+                    <Route path="/KK/MenuPage/:id" element={<MenuPage />} />
                   </Routes>
                 </Box>
               </Fade>

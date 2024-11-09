@@ -135,15 +135,6 @@ const Footer = memo(() => {
               Store/Access
             </Link>
           </Box>
-          <Box sx={{ mt: 2 }}>
-            <Link
-              sx={{ fontFamily: "Shippori Mincho B1" }}
-              color="#fff"
-              href={linkPage("#history")}
-            >
-              Store History
-            </Link>
-          </Box>
         </Box>
       </Stack>
     </>

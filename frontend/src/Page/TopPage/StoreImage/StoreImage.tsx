@@ -34,7 +34,6 @@ const StoreImage = memo(() => {
           disableOnInteraction: false,
         }}
         spaceBetween={10}
-        navigation={true}
         thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined} // thumbsSwiperが存在する場合のみ渡す
         modules={[Autoplay, FreeMode, Navigation, Thumbs]}
         speed={3000}
@@ -51,8 +50,7 @@ const StoreImage = memo(() => {
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper} // サムネイルスワイパーを設定
-        spaceBetween={4}
-        slidesPerView={3}
+        slidesPerView={6}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
@@ -63,7 +61,7 @@ const StoreImage = memo(() => {
             <Box
               component="img"
               src={img}
-              sx={{ width: "80%", height: "100px" }}
+              sx={{ width: "100%", height: "100px" }}
             />
           </SwiperSlide>
         ))}
