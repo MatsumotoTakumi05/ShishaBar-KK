@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import CardSwiper from "../../../Component/modules/Swiper/CardSwiper";
 import CustomLayout from "../../../Component/modules/Layout/CustomLayout";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 const FlavorPage = memo(() => {
   const cardList = [
@@ -128,6 +128,9 @@ const FlavorPage = memo(() => {
             <Container>
               <CardSwiper cardList={cardList} fontSize="15px" />
             </Container>
+            <Box sx={{ textAlign: "right" }}>
+              <Typography>※写真はイメージです。</Typography>
+            </Box>
           </CustomLayout>
         </Box>
       </Box>

@@ -23,6 +23,7 @@ import { useDrinkPage } from "./useDrinkPage";
 const DrinkPage = memo(() => {
   const [alignment, handleAlignment, cardList] = useDrinkPage();
 
+ 
   return (
     <>
       <Box
@@ -112,7 +113,7 @@ const DrinkPage = memo(() => {
                 </ToggleButtonGroup>
               </Box>
             </Container>
-            <CardSwiper cardList={cardList} disableOnInteraction={true} />
+            <CardSwiper cardList={cardList} disableOnInteraction={false} />
             <Box>
               <Typography sx={{ textAlign: "right" }}>
                 ※写真はイメージです。

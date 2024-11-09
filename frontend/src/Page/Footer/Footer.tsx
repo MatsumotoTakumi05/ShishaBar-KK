@@ -18,8 +18,10 @@ const Footer = memo(() => {
       return `${defaultPath}${hash}`; // デフォルトパスにハッシュを追加
     }
   };
-
   const navigate = useNavigate();
+  const handleCardClick = (id: number) => {
+    navigate(`/KK/MenuPage/${id}`);
+  };
   return (
     <>
       <Box
@@ -96,7 +98,7 @@ const Footer = memo(() => {
             <Link
               sx={{ fontFamily: "Shippori Mincho B1" }}
               color="#fff"
-              href={linkPage("#shisha")}
+              onClick={() => handleCardClick(1)}
             >
               Shisha Menu
             </Link>
@@ -105,7 +107,7 @@ const Footer = memo(() => {
             <Link
               sx={{ fontFamily: "Shippori Mincho B1" }}
               color="#fff"
-              href={linkPage("#drink")}
+              onClick={() => handleCardClick(3)}
             >
               Drink Menu
             </Link>
@@ -114,7 +116,7 @@ const Footer = memo(() => {
             <Link
               sx={{ fontFamily: "Shippori Mincho B1" }}
               color="#fff"
-              href={linkPage("#food")}
+              onClick={() => handleCardClick(4)}
             >
               Food Menu
             </Link>

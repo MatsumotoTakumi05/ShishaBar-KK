@@ -41,6 +41,12 @@ const SnackPage = memo(() => {
       textContent: "¥ 500",
     },
     {
+      imgUrl: "/SnackCard.jpg",
+      imgEx: "./SnackCard",
+      textTittle: "ポテトチップス",
+      textContent: "¥ 500",
+    },
+    {
       imgUrl: "/ChocoCard.jpg",
       imgEx: "./ChocoCard",
       textTittle: "チョコレート盛合わせ",

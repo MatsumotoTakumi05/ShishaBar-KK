@@ -18,7 +18,8 @@ const MenuPage = memo(() => {
 
   useEffect(() => {
     window.scroll(0, 0);
-  }, []);
+    setValue(id);
+  }, [id]);
   return (
     <>
       <Box
