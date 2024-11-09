@@ -24,18 +24,18 @@ const styles = {
   },
   menuCard: {
     width: { xs: "90%", sm: "60%", md: "40%" },
-    padding: "20px",
-    borderRadius: "8px",
+    // padding: "20px",
+    borderRadius: "2%",
     margin: "0 auto",
     textAlign: "center",
-    height: { xs: "30%", sm: "30%", md: "30%" },
+    height: { xs: "20%", sm: "20%", md: "20%" },
   },
   cardTitleStyle: {
     fontFamily: "Academy Engraved LET",
     fontSize: {
       xs: "1.2rem", // スマホ向け
       sm: "1.5rem", // タブレット向け
-      md: "3rem", // PC向け
+      md: "32px", // PC向け
     },
   },
   cardBodyStyle: {
@@ -44,20 +44,18 @@ const styles = {
     fontSize: {
       xs: "0.8rem", // スマホ向け
       sm: "1rem", // タブレット向け
-      md: "1.5rem", // PC向け
+      md: "18px", // PC向け
     },
   },
+  cardImageContent: {
+    width: "320px",
+    height: "240px",
+    overflow: "hidden",
+  },
   cardImageStyle: {
-    height: {
-      xs: 200, // スマホ向けの高さ
-      sm: 200, // タブレット向けの高さ
-      md: 200, // PC向けの高さ
-    },
-    width: {
-      xs: "100%", // スマホ向けの幅（カードに合わせる）
-      sm: 450, // タブレット向けの幅
-      md: 450, // PC向けの幅
-    },
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
   },
 };
 
@@ -79,7 +77,7 @@ const Menu = memo(() => {
             justifyContent="space-evenly"
             alignItems="flex-start"
             spacing={4}
-            // height="80%"
+            height="80%"
             width="80%"
             borderRadius="2%"
             margin="0 auto"
@@ -91,12 +89,14 @@ const Menu = memo(() => {
             {/* Shisha Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
               <CardActionArea onClick={() => handleCardClick(1)}>
-                <CardMedia
-                  component="img"
-                  sx={styles.cardImageStyle} // 画像のサイズを指定
-                  image="/Shisha.jpeg"
-                  alt="Shisha"
-                />
+                <Box sx={styles.cardImageContent}>
+                  <CardMedia
+                    component="img"
+                    sx={styles.cardImageStyle} // 画像のサイズを指定
+                    image="/ShishaCard.jpg"
+                    alt="Shisha"
+                  />
+                </Box>
                 <CardContent sx={styles.menuCard}>
                   <Typography
                     gutterBottom
@@ -119,13 +119,15 @@ const Menu = memo(() => {
 
             {/* Drink Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
-              <CardActionArea onClick={() => handleCardClick(2)}>
-                <CardMedia
-                  component="img"
-                  sx={styles.cardImageStyle} // 画像のサイズを指定
-                  image="/Drink.jpeg"
-                  alt="./ShishaPage"
-                />
+              <CardActionArea onClick={() => handleCardClick(3)}>
+                <Box sx={styles.cardImageContent}>
+                  <CardMedia
+                    component="img"
+                    sx={styles.cardImageStyle} // 画像のサイズを指定
+                    image="/DrinkCard.jpg"
+                    alt="./ShishaPage"
+                  />
+                </Box>
                 <CardContent sx={styles.menuCard}>
                   <Typography
                     gutterBottom
@@ -148,13 +150,15 @@ const Menu = memo(() => {
 
             {/* Snack Card */}
             <Card sx={{ maxWidth: 500, margin: 10 }}>
-              <CardActionArea onClick={() => handleCardClick(3)}>
-                <CardMedia
-                  component="img"
-                  sx={styles.cardImageStyle} // 画像のサイズを指定
-                  image="/Snack.jpeg"
-                  alt="./ShishaPage"
-                />
+              <CardActionArea onClick={() => handleCardClick(4)}>
+                <Box sx={styles.cardImageContent}>
+                  <CardMedia
+                    component="img"
+                    sx={styles.cardImageStyle} // 画像のサイズを指定
+                    image="/SnackCard.jpg"
+                    alt="./ShishaPage"
+                  />
+                </Box>
                 <CardContent sx={styles.menuCard}>
                   <Typography
                     gutterBottom

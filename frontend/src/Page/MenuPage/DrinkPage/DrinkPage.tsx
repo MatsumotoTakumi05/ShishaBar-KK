@@ -16,6 +16,7 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Tooltip,
+  Typography,
 } from "@mui/material";
 import { useDrinkPage } from "./useDrinkPage";
 
@@ -112,6 +113,11 @@ const DrinkPage = memo(() => {
               </Box>
             </Container>
             <CardSwiper cardList={cardList} disableOnInteraction={true} />
+            <Box>
+              <Typography sx={{ textAlign: "right" }}>
+                ※写真はイメージです。
+              </Typography>
+            </Box>
           </CustomLayout>
         </Box>
       </Box>

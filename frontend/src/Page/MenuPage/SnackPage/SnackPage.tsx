@@ -23,32 +23,32 @@ import CardSwiper from "../../../Component/modules/Swiper/CardSwiper";
 const SnackPage = memo(() => {
   const cardList = [
     {
-      imgUrl: "/Snack.jpeg",
-      imgEx: "./ShishaPage",
+      imgUrl: "/PotetoFlyCard.jpg",
+      imgEx: "./PotetoFlyCard",
       textTittle: "ポテトフライ",
       textContent: "¥ 600",
     },
     {
-      imgUrl: "/Snack.jpeg",
-      imgEx: "./ShishaPage",
+      imgUrl: "/NuggetsCard.jpg",
+      imgEx: "./NuggetsCard",
       textTittle: "チキンナゲット",
       textContent: "¥ 600",
     },
     {
-      imgUrl: "/Snack.jpeg",
-      imgEx: "./ShishaPage",
+      imgUrl: "/NutsCard.jpg",
+      imgEx: "./NutsCard",
       textTittle: "ナッツ",
       textContent: "¥ 500",
     },
     {
-      imgUrl: "/Snack.jpeg",
-      imgEx: "./ShishaPage",
+      imgUrl: "/ChocoCard.jpg",
+      imgEx: "./ChocoCard",
       textTittle: "チョコレート盛合わせ",
       textContent: "¥ 500",
     },
     {
-      imgUrl: "/Snack.jpeg",
-      imgEx: "./ShishaPage",
+      imgUrl: "/CupMenCard.jpg",
+      imgEx: "./CupMenCard",
       textTittle: "カップ麺各種",
       textContent: "¥ 500",
     },
@@ -65,6 +65,9 @@ const SnackPage = memo(() => {
         <Box height={"100%"}>
           <CustomLayout tittleText="Snack Menu">
             <CardSwiper cardList={cardList} />
+            <Box sx={{ textAlign: "right" }}>
+              <Typography>※写真はイメージです。</Typography>
+            </Box>
           </CustomLayout>
         </Box>
       </Box>
