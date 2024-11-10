@@ -5,51 +5,79 @@ import React, { memo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Fade } from "react-swift-reveal";
 import InstagramLink from "../../Component/modules/InstagramLink/InstagramLink";
-
+import { Height } from "@mui/icons-material";
+import { theme } from "../../Style/theme";
+import { useGetWindowSize } from "../../Style/useGetWindowSize";
 
 const Header = memo(() => {
-
-  const navigate = useNavigate()
+  const { windowSize } = useGetWindowSize();
+  const navigate = useNavigate();
 
   const StartPathOnClick = () => {
-    window.scroll(0, 0)
-    navigate('/KK')
-  }
+    window.scroll(0, 0);
+    navigate("/KK");
+  };
 
   const backURLOnClick = () => {
-    navigate("/KK")
-  }
+    navigate("/KK");
+  };
 
+  const styles = {
+    OutLine: {
+      position: "fixed",
+      bgcolor: "#000",
+    },
+    OutHeight: {
+      height: "80px",
+    },
+    Image: {
+      height: { xs: "50%", md: "100%" },
+      width: { xs: "50px", md: "110px" },
+      cursor: "pointer",
+    },
+    LinkOutLine: {
+      mt: { xs: "16px", md: "35px" },
+      fontSize: { xs: "12px", md: "20px" },
+    },
+  };
+
+  const IconSpacing = theme.breakpoints.values.md > windowSize.width ? 2 : 80;
+  const LinkSpacing = theme.breakpoints.values.md > windowSize.width ? 2 : 6;
+  const iconMargin = theme.breakpoints.values.md > windowSize.width ? -0.8 : -1.5;
   return (
     <>
-      <AppBar sx={{ position: "fixed", backgroundColor: "#000" }}>
+      <AppBar sx={styles.OutLine}>
         <Fade duration={2000}>
-          <Stack spacing={80} direction="row" sx={{ height: "80px" }}>
-            <Box sx={{
-              '&:hover': {
-                opacity: 0.5, // hover時の不透明度
-              },
-            }}>
-              <img
+          <Stack spacing={IconSpacing} direction="row" sx={styles.OutHeight}>
+            <Box
+              sx={{
+                "&:hover": {
+                  opacity: 0.5, // hover時の不透明度
+                },
+              }}
+            >
+              <Box
+                component="img"
                 src="/store_icon.jpeg"
-                style={{ height: "80px", width: "110px", cursor: "pointer", }}
                 onClick={StartPathOnClick}
+                sx={styles.Image}
               />
             </Box>
             <Box>
               <Stack
-                spacing={6}
+                spacing={LinkSpacing}
                 direction="row"
-                sx={{ marginTop: "35px", fontSize: "18px" }}
+                sx={styles.LinkOutLine}
               >
-
                 <Link
                   underline="none"
                   color="#ffffff"
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       opacity: 0.5,
-                    }, fontFamily: "Academy Engraved LET", cursor: "pointer"
+                    },
+                    fontFamily: "Academy Engraved LET",
+                    cursor: "pointer",
                   }}
                   onClick={StartPathOnClick}
                 >
@@ -59,9 +87,11 @@ const Header = memo(() => {
                   underline="none"
                   color="#ffffff"
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       opacity: 0.5,
-                    }, fontFamily: "Academy Engraved LET", cursor: "pointer"
+                    },
+                    fontFamily: "Academy Engraved LET",
+                    cursor: "pointer",
                   }}
                   onClick={backURLOnClick}
                   href="#menu"
@@ -72,9 +102,11 @@ const Header = memo(() => {
                   underline="none"
                   color="#ffffff"
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       opacity: 0.5,
-                    }, fontFamily: "Academy Engraved LET", cursor: "pointer"
+                    },
+                    fontFamily: "Academy Engraved LET",
+                    cursor: "pointer",
                   }}
                   href="#about"
                   onClick={backURLOnClick}
@@ -85,9 +117,11 @@ const Header = memo(() => {
                   underline="none"
                   color="#ffffff"
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       opacity: 0.5,
-                    }, fontFamily: "Academy Engraved LET", cursor: "pointer"
+                    },
+                    fontFamily: "Academy Engraved LET",
+                    cursor: "pointer",
                   }}
                   href="#access"
                   onClick={backURLOnClick}
@@ -95,13 +129,13 @@ const Header = memo(() => {
                   Store/Access
                 </Link>
                 <Box>
-                  <InstagramLink mt={-1.5} toolFlag />
+                  <InstagramLink mt={iconMargin} toolFlag />
                 </Box>
               </Stack>
             </Box>
           </Stack>
         </Fade>
-      </AppBar >
+      </AppBar>
     </>
   );
 });
