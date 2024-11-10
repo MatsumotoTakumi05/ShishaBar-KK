@@ -1,79 +1,130 @@
-import { Box, Button, Container, Typography } from '@mui/material'
-import { Fade } from 'react-swift-reveal';
-import React, { memo, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import CustomButton from '../../Component/atoms/Button/CustomButton';
-
+import { Box, Button, Container, Typography } from "@mui/material";
+import { Fade } from "react-swift-reveal";
+import React, { memo, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import CustomButton from "../../Component/atoms/Button/CustomButton";
+import { useGetWindowSize } from "../../Style/useGetWindowSize";
 
 interface Props {
-    setPath: React.Dispatch<React.SetStateAction<string>>
+  setPath: React.Dispatch<React.SetStateAction<string>>;
 }
 const YearConf = memo((props: Props) => {
-    const { setPath } = props
-    // 画面遷移用Hooks
-    const navigate = useNavigate();
+  const { setPath } = props;
 
-    // フェードイン完了後にTypographyを表示するための状態
-    const [showText, setShowText] = useState(false);
+  // 画面サイズ
+  const { windowSize } = useGetWindowSize();
+  // 画面遷移用Hooks
+  const navigate = useNavigate();
 
-    const nextBtnOnClick = () => {
-        setPath("/KK")
-        navigate('/KK')
-    }
-    // フェード処理が完了した後にTypographyを表示するタイマー
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowText(true);
-        }, 3000); // Fadeのdurationに合わせた時間
+  // フェードイン完了後にTypographyを表示するための状態
+  const [showText, setShowText] = useState(false);
 
-        return () => clearTimeout(timer); // コンポーネントがアンマウントされた際にタイマーをクリア
-    }, []);
+  const nextBtnOnClick = () => {
+    setPath("/KK");
+    navigate("/KK");
+  };
+  // フェード処理が完了した後にTypographyを表示するタイマー
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowText(true);
+    }, 2000); // Fadeのdurationに合わせた時間
 
+    return () => clearTimeout(timer); // コンポーネントがアンマウントされた際にタイマーをクリア
+  }, []);
 
-    return (
-        <>
-            <Box sx={{ bgcolor: "#262626" }}>
-                <Fade duration={6000}>
-                    <Box component="img" src='./yearConf_BgImage.jpeg' />
-                </Fade>
-                {
-                    showText && (
+  // レスポンシブデザインの変数
+  const styles = {
+    OutLine: {
+      bgcolor: "#262626",
+    },
+    Image: {
+      height: `${windowSize.height}px`,
+      width: `${windowSize.width}px`,
+      objectFit: "cover",
+    },
+  };
 
-                        <Container sx={{
-                            position: "absolute",
-                            top: "25%",
-                            zIndex: 15,
-                            backgroundColor: "rgba(38, 38, 38, 0.5)",
-                            color: "#fff",
-                            height: "300px",
-                            width: "40%",
-                            left: "30%",
-                            borderRadius: "5%",
+  return (
+    <>
+      <Box sx={styles.OutLine}>
+        <Fade duration={6000}>
+          <Box
+            component="video"
+            src="./YearConfVideo.mp4"
+            autoPlay // 自動再生を追加（必要に応じて）
+            muted // 自動再生を行う場合はミュートを追加
+            loop // ループ再生を追加（必要に応じて）
+            sx={styles.Image}
+          />
+        </Fade>
+        {showText && (
+          <Container
+            sx={{
+              position: "absolute",
+              top: { xs: "35%", md: "25%" },
+              zIndex: 15,
+              backgroundColor: "rgba(38, 38, 38, 0.5)",
+              color: "#fff",
+              height: { xs: "200px", md: "40%" },
+              width: "60%",
+              left: "20%",
+              borderRadius: "5%",
+            }}
+          >
+            <Fade>
+              <Box
+                sx={{
+                  display: "flex", // フレックスボックスを使用
+                  flexDirection: "column", // 縦方向に配置
+                  alignItems: "center", // 水平方向に中央寄せ
+                  margin: "0 auto",
+                }}
+              >
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    marginTop: "5%",
+                    color: "#ffffff",
+                    fontSize: { xs: "16px", md: "24px" },
+                  }}
+                >
+                  年齢確認
+                </Typography>
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    marginTop: "5%",
+                    fontSize: { xs: "12px", md: "20px" },
+                  }}
+                >
+                  当店ご利用には20歳以上である必要があります。
+                  <br />
+                  あなたは20歳以上ですか？
+                </Typography>
+                <Box
+                  sx={{
+                    textAlign: "center",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    mt: 2,
+                    fontSize: { xs: "12px", md: "20px" },
+                    width: { xs: "100%", md: "50%" },
+                  }}
+                >
+                  <Box>
+                    <CustomButton BtnContent="OK" BtnOnClick={nextBtnOnClick} />
+                  </Box>
+                  <Box>
+                    <CustomButton BtnContent="No" BtnOnClick={nextBtnOnClick} />
+                  </Box>
+                </Box>
+              </Box>
+            </Fade>
+          </Container>
+        )}
+      </Box>
+    </>
+  );
+});
 
-                        }}
-                        >
-                            <Fade>
-                                <Typography sx={{ textAlign: "center", marginTop: "5%", color: "#ffffff" }}>
-                                    年齢確認
-                                </Typography>
-                                <Typography sx={{ textAlign: "center", marginTop: "10%" }}>
-                                    当店をご利用いただくには<br />
-                                    20歳以上である必要があります。<br />
-                                    あなたは20歳以上ですか？
-                                </Typography>
-                                <Box sx={{ textAlign: "center", display: "flex", justifyContent: "space-between", width: "40%", margin: "0 auto", mt: 2 }} >
-                                    <CustomButton BtnContent='OK' BtnOnClick={nextBtnOnClick} />
-                                    <CustomButton BtnContent='No' BtnOnClick={nextBtnOnClick} />
-                                </Box>
-                            </Fade>
-                        </Container >
-
-                    )
-                }
-            </Box>
-        </>
-
-    )
-})
-
-export default YearConf
+export default YearConf;
