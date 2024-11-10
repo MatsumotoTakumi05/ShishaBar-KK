@@ -22,7 +22,7 @@ const InstagramLink = memo((props: Props) => {
   };
 
   const openInstagramProfile = (username: string) => {
-    // InstagramアプリのURLスキーム
+    // InstagramアプリのURL
     const appUrl = `instagram://user?username=${username}`;
     // InstagramのWeb URL
     const webUrl = `https://www.instagram.com/${username}/`;
@@ -72,17 +72,24 @@ const InstagramLink = memo((props: Props) => {
         sx={{
           "& .MuiPaper-root": {
             // Paperコンポーネントのスタイルを指定
-            marginRight: "10px", // 左にマージンを追加
             borderRadius: "12px", // 角を丸くする
             backgroundColor: "rgba(26, 26, 26, 0.8)", // 背景色を白に設定
             color: "#fff",
+            width: { xs: "60%", md: "25%" },
+            height: { xs: "15%", md: "15%" },
           },
         }}
       >
-        <MenuItem onClick={() => openInstagramProfile("shishabar_kk")}>
+        <MenuItem
+          onClick={() => openInstagramProfile("shishabar_kk")}
+          sx={{ fontSize: { xs: "8px", md: "18px" } }}
+        >
           @shishabar_kk(湯田店)
         </MenuItem>
-        <MenuItem onClick={() => openInstagramProfile("shishabar_kk_tokuyama")}>
+        <MenuItem
+          onClick={() => openInstagramProfile("shishabar_kk_tokuyama")}
+          sx={{ fontSize: { xs: "8px", md: "18px" } }}
+        >
           @shishabar_kk_tokuyama(徳山店)
         </MenuItem>
       </Menu>

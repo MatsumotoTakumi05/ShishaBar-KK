@@ -13,8 +13,11 @@ import SnackPage from "./Page/MenuPage/SnackPage/SnackPage";
 import DrinkPage from "./Page/MenuPage/DrinkPage/DrinkPage";
 import ShishaPage from "./Page/MenuPage/ShishaPage/ShishaPage";
 import MenuPage from "./Page/MenuPage/MenuPage";
+import { useGetWindowSize } from "./Style/useGetWindowSize";
 
 const App = memo(() => {
+  // ウィンドウサイズ
+  const { windowSize } = useGetWindowSize();
   // 現在のパスを保持
   const [path, setPath] = useState("/");
   useEffect(() => {
@@ -22,6 +25,7 @@ const App = memo(() => {
     setPath(currentPath);
   }, [path]);
 
+  console.log(windowSize)
   document.title = "KK";
   return (
     <>
@@ -36,11 +40,24 @@ const App = memo(() => {
             </>
           ) : (
             <>
-              <Box sx={{ height: "80px", backgroundColor: "#262626" }}>
+              <Box
+                sx={{
+                  height: { xs: "50px", md: "80px" },
+                  backgroundColor: "#262626",
+                  width: `${windowSize.width}px`,
+                }}
+              >
                 <Header />
               </Box>
               <Fade duration={1000}>
-                <Box sx={{ height: "100%", bgcolor: "#262626", color: "#fff" }}>
+                <Box
+                  sx={{
+                    height: `${windowSize.height}px`,
+                    width: `${windowSize.width}px`,
+                    bgcolor: "#262626",
+                    color: "#fff",
+                  }}
+                >
                   <Routes>
                     <Route path="/KK" element={<MainContent />} />
                     <Route path="/KK/AboutShisha" element={<DetailShisha />} />

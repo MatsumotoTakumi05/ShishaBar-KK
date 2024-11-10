@@ -8,8 +8,12 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import { theme } from "../../../Style/theme";
+import { useGetWindowSize } from "../../../Style/useGetWindowSize";
 
 const StoreImage = memo(() => {
+  // ウィンドウサイズの取得
+  const { windowSize } = useGetWindowSize();
   // 表示する画像リスト
   const topImage = [
     "./ShishaAbout_BgImage.jpeg",
@@ -26,8 +30,9 @@ const StoreImage = memo(() => {
     <>
       <Swiper
         style={{
-          "--swiper-navigation-color": "#fff",
-          height: "500px",
+          height:
+            theme.breakpoints.values.md > windowSize.width ? "50%" : "80%",
+          width: `${windowSize.width}px`,
         }}
         autoplay={{
           delay: 2500,
@@ -43,7 +48,7 @@ const StoreImage = memo(() => {
             <Box
               component="img"
               src={img}
-              sx={{ width: "100%", height: "100%" }}
+              sx={{ width: `${windowSize.width}px`, height: "100%" }}
             />
           </SwiperSlide>
         ))}
@@ -55,13 +60,17 @@ const StoreImage = memo(() => {
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         speed={3000}
+        style={{
+          height: theme.breakpoints.values.md > windowSize.width ? "5%" : "20%",
+          width: "99%",
+        }}
       >
         {topImage.map((img, index) => (
           <SwiperSlide key={index}>
             <Box
               component="img"
               src={img}
-              sx={{ width: "100%", height: "100px" }}
+              sx={{ width: "100%", height: "100%" }}
             />
           </SwiperSlide>
         ))}

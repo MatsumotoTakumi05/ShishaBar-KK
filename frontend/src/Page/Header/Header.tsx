@@ -26,24 +26,26 @@ const Header = memo(() => {
     OutLine: {
       position: "fixed",
       bgcolor: "#000",
+      width: "100%",
     },
     OutHeight: {
-      height: "80px",
+      height: { xs: "50px", md: "80px" },
     },
     Image: {
-      height: { xs: "50%", md: "100%" },
+      height: "100%",
       width: { xs: "50px", md: "110px" },
       cursor: "pointer",
     },
     LinkOutLine: {
-      mt: { xs: "16px", md: "35px" },
+      mt: { xs: "20px", md: "35px" },
       fontSize: { xs: "12px", md: "20px" },
     },
   };
 
   const IconSpacing = theme.breakpoints.values.md > windowSize.width ? 2 : 80;
   const LinkSpacing = theme.breakpoints.values.md > windowSize.width ? 2 : 6;
-  const iconMargin = theme.breakpoints.values.md > windowSize.width ? -0.8 : -1.5;
+  const iconMargin =
+    theme.breakpoints.values.md > windowSize.width ? -0.8 : -1.5;
   return (
     <>
       <AppBar sx={styles.OutLine}>
