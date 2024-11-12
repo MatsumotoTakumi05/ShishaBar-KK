@@ -18,7 +18,7 @@ const Information = memo(() => {
   const Information: Info[] = [
     {
       date: "2024/10/14",
-      text: "HPの公開についてお知らせ",
+      text: "HPの公開について",
       DialogTittleText: "お知らせ",
       DialogDetail: (
         <>
@@ -32,7 +32,7 @@ const Information = memo(() => {
     },
     {
       date: "2024/10/01",
-      text: "Instagramのご紹介について",
+      text: "Instagramのご紹介",
       DialogTittleText: "お知らせ",
       DialogDetail: (
         <>
@@ -82,17 +82,17 @@ const Information = memo(() => {
           maxHeight: "300px",
           minHeight: "300px",
           overflowY: "scroll",
-          width: "60%",
-          left: "20%",
+          width: { md: "60%", xs: "80%" },
+          left: { md: "20%" },
           borderRadius: "2%",
           paddingTop: "10px",
         }}
       >
-        <Container maxWidth="md">
+        <Box maxWidth="md">
           {Information.map((info: Info) => (
             <Box
               sx={{
-                display: "flex",
+                display: { md: "flex" },
                 margin: "50px 0",
                 borderBottom: "dotted 0.5px #fff",
                 fontFamily: "Shippori Mincho B1",
@@ -103,7 +103,7 @@ const Information = memo(() => {
               <Box sx={{ justifyContent: "flex-start" }}>
                 <Typography>{info.date}</Typography>
               </Box>
-              <Box sx={{ marginLeft: "200px" }}>
+              <Box sx={{ marginLeft: { md: "200px", xs: "10%" } }}>
                 <Link
                   sx={{
                     "&:hover": { opacity: "0.8" },
@@ -118,18 +118,17 @@ const Information = memo(() => {
               </Box>
             </Box>
           ))}
-
-          {/* ダイアログの内容を表示 */}
-          {selectedInfo && (
-            <CustomDiaLog
-              open={isOpenDiaLog}
-              onClose={onClose}
-              DialogTittleText={selectedInfo.DialogTittleText}
-              DialogDetail={selectedInfo.DialogDetail}
-            />
-          )}
-        </Container>
+        </Box>
       </Container>
+      {/* ダイアログの内容を表示 */}
+      {selectedInfo && (
+        <CustomDiaLog
+          open={isOpenDiaLog}
+          onClose={onClose}
+          DialogTittleText={selectedInfo.DialogTittleText}
+          DialogDetail={selectedInfo.DialogDetail}
+        />
+      )}
     </CustomLayout>
   );
 });

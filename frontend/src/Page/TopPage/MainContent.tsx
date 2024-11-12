@@ -11,7 +11,7 @@ const MainContent = memo(() => {
   return (
     <>
       <Box
-        height={"600px"}
+        height={"700px"}
         sx={{
           overflowY: "auto",
           backgroundImage: "url(./Normal_BgImage.jpeg)",
