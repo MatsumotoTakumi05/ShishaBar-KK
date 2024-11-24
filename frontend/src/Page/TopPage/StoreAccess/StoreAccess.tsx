@@ -17,10 +17,11 @@ const styles = {
   headerBox: {
     height: "20px",
     padding: "80px 60px",
+    width: { xs: "100%" },
   },
   headerText: {
     fontFamily: "Academy Engraved LET",
-    fontSize: "40px",
+    fontSize: { xs: "32px", md: "40px" },
   },
   storeBox: {
     width: { xs: "90%", sm: "60%", md: "40%" },

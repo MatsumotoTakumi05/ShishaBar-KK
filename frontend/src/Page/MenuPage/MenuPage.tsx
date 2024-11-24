@@ -29,6 +29,7 @@ const MenuPage = memo(() => {
           position: "fixed",
           bgcolor: "#262626",
           zIndex: "10",
+          // top: { xs: "90px" },
         }}
       >
         <Tabs

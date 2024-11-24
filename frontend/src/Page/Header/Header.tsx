@@ -29,20 +29,28 @@ const Header = memo(() => {
       width: "100%",
     },
     OutHeight: {
-      height: { xs: "50px", md: "80px" },
+      height: { xs: "60px", md: "80px" },
     },
     Image: {
       height: "100%",
-      width: { xs: "50px", md: "110px" },
+      width: { xs: "60px", md: "110px" },
       cursor: "pointer",
     },
     LinkOutLine: {
-      mt: { xs: "20px", md: "35px" },
-      fontSize: { xs: "12px", md: "20px" },
+      mt: { xs: "25px", md: "35px" },
+      fontSize: { xs: "16px", md: "20px" },
     },
   };
 
-  const IconSpacing = theme.breakpoints.values.md > windowSize.width ? 2 : 80;
+  const IconSpacing =
+    theme.breakpoints.values.sm > windowSize.width
+      ? 3
+      : theme.breakpoints.values.sm < windowSize.width &&
+        theme.breakpoints.values.md > windowSize.width
+      ? 50
+      : theme.breakpoints.values.md < windowSize.width
+      ? 35
+      : 0;
   const LinkSpacing = theme.breakpoints.values.md > windowSize.width ? 2 : 6;
   const iconMargin =
     theme.breakpoints.values.md > windowSize.width ? -0.8 : -1.5;

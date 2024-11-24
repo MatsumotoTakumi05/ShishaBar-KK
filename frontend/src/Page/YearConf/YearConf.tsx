@@ -61,11 +61,11 @@ const YearConf = memo((props: Props) => {
           <Container
             sx={{
               position: "absolute",
-              top: { xs: "35%", md: "25%" },
+              top: { xs: "30%", md: "25%" },
               zIndex: 15,
               backgroundColor: "rgba(38, 38, 38, 0.5)",
               color: "#fff",
-              height: { xs: "200px", md: "40%" },
+              height: { xs: "35%", md: "40%" },
               width: "60%",
               left: "20%",
               borderRadius: "5%",
@@ -85,7 +85,7 @@ const YearConf = memo((props: Props) => {
                     textAlign: "center",
                     marginTop: "5%",
                     color: "#ffffff",
-                    fontSize: { xs: "16px", md: "24px" },
+                    fontSize: { xs: "22px", md: "24px" },
                   }}
                 >
                   年齢確認
@@ -93,8 +93,8 @@ const YearConf = memo((props: Props) => {
                 <Typography
                   sx={{
                     textAlign: "left",
-                    marginTop: "5%",
-                    fontSize: { xs: "12px", md: "20px" },
+                    marginTop: 3,
+                    fontSize: { xs: "16px", md: "20px" },
                   }}
                 >
                   当店ご利用には20歳以上である必要があります。
@@ -106,7 +106,7 @@ const YearConf = memo((props: Props) => {
                     textAlign: "center",
                     display: "flex",
                     justifyContent: "space-between",
-                    mt: 2,
+                    mt: 5,
                     fontSize: { xs: "12px", md: "20px" },
                     width: { xs: "100%", md: "50%" },
                   }}

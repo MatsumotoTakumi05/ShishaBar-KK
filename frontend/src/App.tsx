@@ -25,7 +25,7 @@ const App = memo(() => {
     setPath(currentPath);
   }, [path]);
 
-  console.log(windowSize)
+  console.log(windowSize);
   document.title = "KK";
   return (
     <>

@@ -18,18 +18,15 @@ interface Props {
 
 const CustomDiaLog = memo((props: Props) => {
   const { onClose, open, DialogTittleText, DialogDetail } = props;
-  const { windowSize } = useGetWindowSize();
   return (
     <Dialog
       onClose={onClose}
       open={open}
-      fullWidth
+      // fullWidth
       sx={{
         "& .MuiDialog-paper": {
-          ml: { xs: "-50px", md: "0" }, // 左マージンを調整
-          height: windowSize.height, // 高さをレスポンシブに設定
-          maxHeight: windowSize.height, // 最大の高さを設定
-          width: { xs: "70%", sm: "80%", md: "60%" }, // 幅をレスポンシブに設定
+          height: "70%", // 高さをレスポンシブに設定
+          width: { xs: "80%", sm: "80%", md: "60%" }, // 幅をレスポンシブに設定
           fontFamily: "Shippori Mincho B1",
         },
       }}
@@ -37,7 +34,7 @@ const CustomDiaLog = memo((props: Props) => {
       <Box
         sx={{
           width: "100%",
-          height: { xs: "10%", sm: "20%", md: "20%" }, // 高さをレスポンシブに設定
+          height: { xs: "20%", sm: "20%", md: "20%" }, // 高さをレスポンシブに設定
           backgroundColor: "#dedede",
         }}
       >

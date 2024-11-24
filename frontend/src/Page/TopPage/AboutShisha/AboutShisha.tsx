@@ -24,7 +24,11 @@ const AboutShisha = memo(() => {
         <Box
           component="img"
           src="./AboutShisha.jpg"
-          sx={{ width: "100%", opacity: "0.5" }}
+          sx={{
+            width: "100%",
+            opacity: "0.5",
+            height: { xs: "500px", md: "100%" },
+          }}
         />
         <CustomLayout
           id="about"
@@ -35,9 +39,9 @@ const AboutShisha = memo(() => {
             <Box sx={{ width: "50%", paddingLeft: "80px" }}>
               <Typography
                 sx={{
-                  fontSize: "19px",
+                  fontSize: { xs: "12px", md: "19px" },
                   fontFamily: "Shippori Mincho B1",
-                  lineHeight: "45px",
+                  lineHeight: { xs: "20px", md: "75px" },
                 }}
               >
                 シーシャは、水タバコの一種で、香り豊かなフレーバーの煙をゆっくりと吸い込む嗜好品です。
@@ -48,11 +52,14 @@ const AboutShisha = memo(() => {
               </Typography>
               <Button
                 variant="text"
-                sx={{ mt: "30px", "&:hover": { opacity: "0.8" } }}
+                sx={{
+                  mt: { xs: "10px", md: "30px" },
+                  "&:hover": { opacity: "0.8" },
+                  fontSize: { xs: "12px", md: "19px" },
+                }}
                 onClick={detailPageNaviOnClick}
                 color="inherit"
               >
-                {" "}
                 Read More→
               </Button>
             </Box>

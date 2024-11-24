@@ -23,18 +23,14 @@ const styles = {
     zIndex: 12,
   },
   menuCard: {
-    width: { xs: "90%", sm: "60%", md: "40%" },
-    // padding: "20px",
     borderRadius: "2%",
-    margin: "0 auto",
-    textAlign: "center",
-    height: { xs: "20%", sm: "20%", md: "20%" },
+    textAlign: "left",
+    height: { xs: "100px", md: "120px" },
   },
   cardTitleStyle: {
     fontFamily: "Academy Engraved LET",
     fontSize: {
-      xs: "1.2rem", // スマホ向け
-      sm: "1.5rem", // タブレット向け
+      xs: "26px", // スマホ向け
       md: "32px", // PC向け
     },
   },
@@ -42,15 +38,13 @@ const styles = {
     color: "text.secondary",
     fontFamily: "Shippori Mincho B1",
     fontSize: {
-      xs: "0.8rem", // スマホ向け
-      sm: "1rem", // タブレット向け
-      md: "18px", // PC向け
+      xs: "14px", // スマホ向け
+      md: "16px", // PC向け
     },
   },
   cardImageContent: {
-    width: "320px",
-    height: "240px",
-    overflow: "hidden",
+    maxWidth: "320px",
+    height: { xs: "190px", md: "240px" },
   },
   cardImageStyle: {
     width: "100%",
@@ -61,7 +55,6 @@ const styles = {
 
 const Menu = memo(() => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // スマホ向けのブレークポイント
 
   const navigate = useNavigate();
   const handleCardClick = (id: number) => {
@@ -70,24 +63,21 @@ const Menu = memo(() => {
 
   return (
     <>
-      <Box height="800px" sx={styles.pageWrapper}>
+      <Box height={{ xs: "1450px", md: "800px" }} sx={styles.pageWrapper}>
         <CustomLayout tittleText={"Menu"} id="menu">
           <Stack
-            direction="row"
+            direction={{ md: "row", xs: "column" }}
             justifyContent="space-evenly"
             alignItems="flex-start"
-            spacing={4}
-            height="80%"
-            width="80%"
+            spacing={{ md: 4 }}
+            height={{ xs: "1200px", md: "80%" }}
             borderRadius="2%"
-            margin="0 auto"
             sx={{
-              padding: "20px",
-              flexDirection: isSmallScreen ? "column" : "row",
+              paddingLeft: { xs: "10%", md: "5%" },
             }}
           >
             {/* Shisha Card */}
-            <Card sx={{ maxWidth: 500, margin: 10 }}>
+            <Card sx={{ width: "320px" }}>
               <CardActionArea onClick={() => handleCardClick(1)}>
                 <Box sx={styles.cardImageContent}>
                   <CardMedia
@@ -98,27 +88,18 @@ const Menu = memo(() => {
                   />
                 </Box>
                 <CardContent sx={styles.menuCard}>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={styles.cardTitleStyle}
-                  >
-                    Shisha
-                  </Typography>
-                  <Typography variant="body2" sx={styles.cardBodyStyle}>
-                    基本料金
+                  <Typography sx={styles.cardTitleStyle}>Shisha</Typography>
+                  <Typography sx={styles.cardBodyStyle}>
+                    基本料金について
                     <br />
-                    フレーバー
-                    <br />
-                    etc...
+                    厳選したフレーバーをご用意
                   </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
 
             {/* Drink Card */}
-            <Card sx={{ maxWidth: 500, margin: 10 }}>
+            <Card sx={{ width: "320px" }}>
               <CardActionArea onClick={() => handleCardClick(3)}>
                 <Box sx={styles.cardImageContent}>
                   <CardMedia
@@ -129,27 +110,18 @@ const Menu = memo(() => {
                   />
                 </Box>
                 <CardContent sx={styles.menuCard}>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={styles.cardTitleStyle}
-                  >
-                    Drink
-                  </Typography>
-                  <Typography variant="body2" sx={styles.cardBodyStyle}>
-                    ハイボール
+                  <Typography sx={styles.cardTitleStyle}>Drink</Typography>
+                  <Typography sx={styles.cardBodyStyle}>
+                    約60種のメニューで乾杯
                     <br />
-                    カクテル
-                    <br />
-                    etc...
+                    カクテル、シャンパン、ハイボール...
                   </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
 
             {/* Snack Card */}
-            <Card sx={{ maxWidth: 500, margin: 10 }}>
+            <Card sx={{ width: "320px" }}>
               <CardActionArea onClick={() => handleCardClick(4)}>
                 <Box sx={styles.cardImageContent}>
                   <CardMedia
@@ -160,20 +132,13 @@ const Menu = memo(() => {
                   />
                 </Box>
                 <CardContent sx={styles.menuCard}>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={styles.cardTitleStyle}
-                  >
-                    Snack
-                  </Typography>
-                  <Typography variant="body2" sx={styles.cardBodyStyle}>
-                    スナック
+                  <Typography sx={styles.cardTitleStyle}>Snack</Typography>
+                  <Typography sx={styles.cardBodyStyle}>
+                    シンプルなラインナップながらも
                     <br />
-                    ナッツ
+                    お酒にピッタリなメニューをご用意。
                     <br />
-                    etc...
+                    ナッツ、ポテトフライ...
                   </Typography>
                 </CardContent>
               </CardActionArea>
