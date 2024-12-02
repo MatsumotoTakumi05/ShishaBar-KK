@@ -77,7 +77,7 @@ const Menu = memo(() => {
             }}
           >
             {/* Shisha Card */}
-            <Card sx={{ width: "320px" }}>
+            <Card sx={{ width: { md: "320px" } }}>
               <CardActionArea onClick={() => handleCardClick(1)}>
                 <Box sx={styles.cardImageContent}>
                   <CardMedia
@@ -99,7 +99,7 @@ const Menu = memo(() => {
             </Card>
 
             {/* Drink Card */}
-            <Card sx={{ width: "320px" }}>
+            <Card sx={{ width: { md: "320px" } }}>
               <CardActionArea onClick={() => handleCardClick(3)}>
                 <Box sx={styles.cardImageContent}>
                   <CardMedia
@@ -121,7 +121,7 @@ const Menu = memo(() => {
             </Card>
 
             {/* Snack Card */}
-            <Card sx={{ width: "320px" }}>
+            <Card sx={{ width: { md: "320px" } }}>
               <CardActionArea onClick={() => handleCardClick(4)}>
                 <Box sx={styles.cardImageContent}>
                   <CardMedia

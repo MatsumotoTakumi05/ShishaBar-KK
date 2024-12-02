@@ -1,11 +1,25 @@
-import { Link, Stack } from "@mui/material";
+import {
+  Divider,
+  Drawer,
+  IconButton,
+  Link,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  ListSubheader,
+  Stack,
+  Typography,
+} from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import React, { memo } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { memo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Fade } from "react-swift-reveal";
 import InstagramLink from "../../Component/modules/InstagramLink/InstagramLink";
-import { Height } from "@mui/icons-material";
+import MenuIcon from "@mui/icons-material/Menu";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { theme } from "../../Style/theme";
 import { useGetWindowSize } from "../../Style/useGetWindowSize";
 
@@ -39,6 +53,7 @@ const Header = memo(() => {
     LinkOutLine: {
       mt: { xs: "25px", md: "35px" },
       fontSize: { xs: "16px", md: "20px" },
+      width: "100%",
     },
   };
 
@@ -54,11 +69,77 @@ const Header = memo(() => {
   const LinkSpacing = theme.breakpoints.values.md > windowSize.width ? 2 : 6;
   const iconMargin =
     theme.breakpoints.values.md > windowSize.width ? -0.8 : -1.5;
+
+  // Drawerの開閉を管理
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  // メニューが細分化する場合に開閉を保持
+
+  // Drawerのイベントハンドラー
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
+  };
   return (
     <>
       <AppBar sx={styles.OutLine}>
         <Fade duration={2000}>
-          <Stack spacing={IconSpacing} direction="row" sx={styles.OutHeight}>
+          <Stack direction="row" sx={styles.OutHeight}>
+            <Box sx={{ pt: 1 }}>
+              <IconButton onClick={handleDrawerToggle} sx={{ color: "silver" }}>
+                <MenuIcon />
+              </IconButton>
+
+              {/* Drawer */}
+              <Drawer
+                anchor="left"
+                open={drawerOpen}
+                onClose={handleDrawerToggle}
+              >
+                <List
+                  sx={{
+                    width: "100%",
+                    maxWidth: 360,
+                    bgcolor: "#262626",
+                    height: "100%",
+                    color: "#fff",
+                  }}
+                  component="nav"
+                  aria-labelledby="nested-list-subheader"
+                  subheader={
+                    <IconButton
+                      onClick={handleDrawerToggle}
+                      sx={{ color: "silver" }}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  }
+                >
+                  <ListItem disablePadding>
+                    <ListItemButton onClick={StartPathOnClick}>
+                      <ListItemText primary="Home" />
+                    </ListItemButton>
+                  </ListItem>
+                  <Divider sx={{ bgcolor: "#fff" }} />
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemText primary="Menu" />
+                    </ListItemButton>
+                  </ListItem>
+                  <Divider sx={{ bgcolor: "#fff" }} />
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemText primary="about" />
+                    </ListItemButton>
+                  </ListItem>
+                  <Divider sx={{ bgcolor: "#fff" }} />
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemText primary="Store/Access" />
+                    </ListItemButton>
+                  </ListItem>{" "}
+                  <Divider sx={{ bgcolor: "#fff" }} />
+                </List>
+              </Drawer>
+            </Box>
             <Box
               sx={{
                 "&:hover": {
@@ -74,7 +155,7 @@ const Header = memo(() => {
               />
             </Box>
             <Box>
-              <Stack
+              {/* <Stack
                 spacing={LinkSpacing}
                 direction="row"
                 sx={styles.LinkOutLine}
@@ -141,7 +222,7 @@ const Header = memo(() => {
                 <Box>
                   <InstagramLink mt={iconMargin} toolFlag />
                 </Box>
-              </Stack>
+              </Stack> */}
             </Box>
           </Stack>
         </Fade>

@@ -17,7 +17,7 @@ const MainContent = memo(() => {
           backgroundImage: "url(./Normal_BgImage.jpeg)",
         }}
       >
-        <Box height={"100%"}>
+        <Box>
           <StoreImage />
           <Information />
           <Menu />

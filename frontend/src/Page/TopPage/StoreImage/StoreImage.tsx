@@ -32,7 +32,6 @@ const StoreImage = memo(() => {
         style={{
           height:
             theme.breakpoints.values.md > windowSize.width ? "50%" : "80%",
-          width: `${windowSize.width}px`,
         }}
         autoplay={{
           delay: 2500,
@@ -48,7 +47,7 @@ const StoreImage = memo(() => {
             <Box
               component="img"
               src={img}
-              sx={{ width: `${windowSize.width}px`, height: "100%" }}
+              sx={{ width: "100%", height: "100%" }}
             />
           </SwiperSlide>
         ))}
@@ -62,7 +61,6 @@ const StoreImage = memo(() => {
         speed={3000}
         style={{
           height: theme.breakpoints.values.md > windowSize.width ? "5%" : "20%",
-          width: "99%",
         }}
       >
         {topImage.map((img, index) => (

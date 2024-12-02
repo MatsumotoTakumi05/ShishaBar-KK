@@ -9,9 +9,6 @@ import DetailShisha from "./Page/DetailShisha/DetailShisha";
 import Footer from "./Page/Footer/Footer";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./Style/theme";
-import SnackPage from "./Page/MenuPage/SnackPage/SnackPage";
-import DrinkPage from "./Page/MenuPage/DrinkPage/DrinkPage";
-import ShishaPage from "./Page/MenuPage/ShishaPage/ShishaPage";
 import MenuPage from "./Page/MenuPage/MenuPage";
 import { useGetWindowSize } from "./Style/useGetWindowSize";
 
@@ -44,7 +41,7 @@ const App = memo(() => {
                 sx={{
                   height: { xs: "50px", md: "80px" },
                   backgroundColor: "#262626",
-                  width: `${windowSize.width}px`,
+                  width: "100%",
                 }}
               >
                 <Header />
@@ -52,8 +49,6 @@ const App = memo(() => {
               <Fade duration={1000}>
                 <Box
                   sx={{
-                    height: `${windowSize.height}px`,
-                    width: `${windowSize.width}px`,
                     bgcolor: "#262626",
                     color: "#fff",
                   }}

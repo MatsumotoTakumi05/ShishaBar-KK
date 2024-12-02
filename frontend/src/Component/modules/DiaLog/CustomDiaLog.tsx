@@ -22,19 +22,15 @@ const CustomDiaLog = memo((props: Props) => {
     <Dialog
       onClose={onClose}
       open={open}
-      // fullWidth
       sx={{
-        "& .MuiDialog-paper": {
-          height: "70%", // 高さをレスポンシブに設定
-          width: { xs: "80%", sm: "80%", md: "60%" }, // 幅をレスポンシブに設定
-          fontFamily: "Shippori Mincho B1",
-        },
+        height: "70%", // 高さをレスポンシブに設定
+        width: "100%", // 幅をレスポンシブに設定
+        fontFamily: "Shippori Mincho B1",
       }}
     >
       <Box
         sx={{
-          width: "100%",
-          height: { xs: "20%", sm: "20%", md: "20%" }, // 高さをレスポンシブに設定
+          height: "20%", // 高さをレスポンシブに設定
           backgroundColor: "#dedede",
         }}
       >
